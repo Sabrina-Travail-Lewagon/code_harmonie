@@ -1,124 +1,114 @@
 /* =============================================================
-   widgets.css — Manche interactif + boutons audio + animations
+   widgets.css — Manche, mini-manches, piano, family/progression,
+                 boutons audio + animations
    ============================================================= */
 
-/* ---- Fretboard (manche SVG) ---- */
+/* ---- Manche complet (grand format, lisible) ---- */
 
 .fretboard {
-  margin: var(--space-4) auto;
-  max-width: 100%;
+  margin: var(--space-4) 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: var(--space-2);
-}
-
-.fretboard-svg {
   width: 100%;
-  max-width: 720px;
-  height: auto;
-  filter: drop-shadow(0 6px 14px rgba(107, 62, 28, 0.18));
-  border-radius: 12px;
-  background: linear-gradient(180deg, rgba(232, 184, 119, 0.05), rgba(0,0,0,0));
 }
 
-.fretboard-svg circle {
-  transition: transform 200ms ease, opacity 200ms ease;
+.fb-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  filter: drop-shadow(0 8px 18px rgba(107, 62, 28, 0.20));
+  background: linear-gradient(180deg, rgba(232, 184, 119, 0.06), rgba(0,0,0,0));
+}
+
+/* Notes interactives */
+.fb-note {
+  transition: transform 180ms ease, filter 180ms ease;
   transform-origin: center;
   transform-box: fill-box;
 }
-
-.fretboard-meta {
-  font-size: var(--fs-sm);
-  color: var(--ink-soft);
-  text-align: center;
-  font-weight: 600;
+.fb-note:hover {
+  filter: brightness(1.12);
 }
-.fretboard-meta strong {
+.fb-note:hover circle:nth-child(2) {
+  transform: scale(1.18);
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.fb-note:active circle:nth-child(2) {
+  transform: scale(0.92);
+}
+.fb-note.is-tonic circle:nth-child(2) {
+  filter: drop-shadow(0 0 6px rgba(232, 76, 61, 0.5));
+}
+.fb-note:focus-visible {
+  outline: none;
+}
+.fb-note:focus-visible circle:nth-child(2) {
+  stroke: var(--color-violet);
+  stroke-width: 3;
+}
+
+/* Métadonnées sous le manche */
+.fb-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-soft);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+}
+.fb-meta strong {
   font-family: var(--font-display);
   font-size: var(--fs-md);
   color: var(--ink);
-  margin-right: var(--space-2);
 }
-.fretboard-meta .degree-maj { color: var(--color-yellow); }
-.fretboard-meta .degree-min { color: var(--color-blue); }
-.fretboard-meta .degree-dim { color: var(--color-red); }
-.fretboard-meta .degree-dom { color: var(--color-orange); }
-
-/* ---- Boutons "Écouter" ---- */
-
-.btn-play {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  background: linear-gradient(135deg, var(--color-green), #46b53a);
-  color: #fff;
-  border: none;
-  border-radius: 999px;
+.fb-degree {
+  font-family: var(--font-mono);
   font-weight: 700;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+.fb-degree.degree-maj { color: var(--color-yellow); border-color: var(--color-yellow); }
+.fb-degree.degree-min { color: var(--color-blue);   border-color: var(--color-blue); }
+.fb-degree.degree-dim { color: var(--color-red);    border-color: var(--color-red); }
+.fb-degree.degree-dom { color: var(--color-orange); border-color: var(--color-orange); }
+.fb-notes {
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
   font-size: var(--fs-sm);
-  cursor: pointer;
-  box-shadow: var(--shadow-xs);
-  transition: transform var(--t-fast), box-shadow var(--t-fast);
-  font-family: inherit;
 }
-.btn-play:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow);
-}
-.btn-play::before {
-  content: '▶';
-  font-size: 11px;
-  display: inline-block;
-  transition: transform 200ms ease;
-}
-.btn-play.is-playing::before {
-  content: '♪';
-  animation: pulse-play 600ms ease-in-out infinite;
+.fb-hint {
+  font-size: var(--fs-xs);
+  color: var(--ink-mute);
+  margin: 0;
+  text-align: center;
+  font-style: italic;
 }
 
-@keyframes pulse-play {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50%      { transform: scale(1.4); opacity: 0.6; }
+/* Mini-manche (utilisé dans family / progression / chord-compare) */
+.fb-mini .fb-svg {
+  max-height: 140px;
 }
+.fb-mini .fb-meta { display: none; }
+.fb-mini .fb-hint { display: none; }
 
-.btn-play-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  justify-content: center;
-  margin: var(--space-3) 0;
-}
-
-/* Variante secondaire (plus discrète) */
-.btn-play-soft {
-  background: var(--bg-soft);
-  color: var(--ink);
-  box-shadow: inset 0 0 0 1px var(--line);
-}
-.btn-play-soft:hover {
-  background: var(--bg-tinted);
-}
-
-/* ---- Comparateur d'accords (3 mini fretboards côte à côte) ---- */
+/* ---- Comparateur d'accords (3 manches côte à côte) ---- */
 
 .chord-compare {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--space-3);
   margin: var(--space-4) 0;
 }
-
-.chord-compare .fretboard {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: var(--space-3);
-  box-shadow: var(--shadow-xs);
-  margin: 0;
-}
-
 .chord-compare-cell {
   background: #fff;
   border: 1px solid var(--line);
@@ -127,7 +117,7 @@
   box-shadow: var(--shadow-xs);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: var(--space-2);
   text-align: center;
 }
@@ -147,7 +137,164 @@
 .chord-compare-cell.is-minor .label-quality { color: var(--color-blue); }
 .chord-compare-cell.is-dim   .label-quality { color: var(--color-red); }
 
-/* ---- Cartes d'instrument (selector ukulélé / guitare) ---- */
+/* ---- Famille des 7 accords ---- */
+
+.family-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+  width: 100%;
+}
+.family-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: stretch;
+  transition: transform var(--t-base), box-shadow var(--t-base);
+}
+.family-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.family-card.quality-maj { border-top: 4px solid var(--color-yellow); }
+.family-card.quality-min { border-top: 4px solid var(--color-blue); }
+.family-card.quality-dim { border-top: 4px solid var(--color-red); }
+.family-card.quality-dom { border-top: 4px solid var(--color-orange); }
+.family-card .btn-play {
+  font-size: 12px;
+  padding: 6px 10px;
+}
+
+/* ---- Progression d'accords (suite I-V-vi-IV…) ---- */
+
+.prog-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-3);
+  margin: var(--space-4) 0 0;
+  align-items: stretch;
+}
+.prog-cell {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: stretch;
+}
+.prog-degree {
+  display: inline-block;
+  align-self: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-md);
+  background: var(--rainbow);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.prog-play-all {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: var(--space-3);
+}
+
+/* ---- Piano interactif ---- */
+
+.piano {
+  margin: var(--space-4) 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+.pn-svg {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  filter: drop-shadow(0 6px 14px rgba(107, 62, 28, 0.16));
+}
+.pn-key {
+  transition: transform 120ms ease, filter 120ms ease;
+  transform-origin: center bottom;
+  transform-box: fill-box;
+}
+.pn-white:hover rect { fill: #FEF7E1; }
+.pn-white:active rect { fill: #FBE9B6; }
+.pn-black:hover rect { fill: #4a3018; }
+.pn-black:active rect { fill: #6B3E1C; }
+.pn-key:focus-visible rect {
+  stroke: var(--color-violet);
+  stroke-width: 3;
+}
+
+/* ---- Boutons "Écouter" ---- */
+
+.btn-play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, var(--color-green), #46b53a);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--t-fast), box-shadow var(--t-fast);
+  font-family: inherit;
+  white-space: nowrap;
+}
+.btn-play:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+.btn-play::before {
+  content: '▶';
+  font-size: 11px;
+  display: inline-block;
+}
+.btn-play.is-playing::before {
+  content: '♪';
+  animation: pulse-play 600ms ease-in-out infinite;
+}
+@keyframes pulse-play {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.4); opacity: 0.6; }
+}
+
+.btn-play-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  margin: var(--space-3) 0;
+}
+
+.btn-play-soft {
+  background: var(--bg-soft);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.btn-play-soft:hover {
+  background: var(--bg-tinted);
+}
+
+/* ---- Sélecteur d'instrument ---- */
 
 .instr-tabs {
   display: inline-flex;
@@ -176,33 +323,19 @@
 /* ---- Animations d'entrée ---- */
 
 @keyframes slide-in {
-  0% {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0%   { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
-
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 @keyframes scale-in {
   from { opacity: 0; transform: scale(0.94); }
   to   { opacity: 1; transform: scale(1); }
 }
-
 @keyframes pop-dot {
   0%   { transform: scale(0); opacity: 0; }
-  60%  { transform: scale(1.15); opacity: 1; }
+  60%  { transform: scale(1.18); opacity: 1; }
   100% { transform: scale(1); opacity: 1; }
 }
 
-/* Animation au chargement initial */
 .slide.is-active .slide-inner > * {
   animation: slide-in 540ms cubic-bezier(.2,.8,.2,1) both;
 }
@@ -214,26 +347,26 @@
 .slide.is-active .slide-inner > *:nth-child(6) { animation-delay: 410ms; }
 .slide.is-active .slide-inner > *:nth-child(7) { animation-delay: 480ms; }
 
-/* Fretboard : pop-in séquentiel des pastilles */
-.slide.is-active .fretboard-svg circle:nth-child(n+5) {
-  animation: pop-dot 420ms cubic-bezier(.2,1.4,.4,1) both;
-}
-
-/* Respect des préférences utilisateur */
 @media (prefers-reduced-motion: reduce) {
-  .slide.is-active .slide-inner > *,
-  .slide.is-active .fretboard-svg circle {
-    animation: none !important;
-  }
+  .slide.is-active .slide-inner > * { animation: none !important; }
 }
 
 /* ---- Responsive ---- */
 
+@media (max-width: 1024px) {
+  .family-row, .prog-row {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
-  .chord-compare {
-    grid-template-columns: 1fr;
-  }
-  .fretboard-svg {
-    max-width: 100%;
-  }
+  .chord-compare { grid-template-columns: 1fr; }
+  .family-row, .prog-row { grid-template-columns: repeat(2, 1fr); }
+  .btn-play { padding: 8px 14px; font-size: 12px; }
+  .fb-meta { font-size: var(--fs-xs); }
+  .fb-meta strong { font-size: var(--fs-sm); }
+}
+
+@media (max-width: 480px) {
+  .family-row, .prog-row { grid-template-columns: 1fr; }
 }
