@@ -1,0 +1,576 @@
+/* =============================================================
+   components.css — Composants visuels (hero, modules, callouts,
+   tables, cartes d'accord, etc.)
+   ============================================================= */
+
+/* ---- Hero / Intro ---- */
+
+.hero {
+  text-align: center;
+  padding: var(--space-7) 0 var(--space-8);
+  position: relative;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-violet);
+  margin: 0 0 var(--space-4);
+  padding: 6px 14px;
+  background: var(--rainbow-soft);
+  border-radius: 999px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-3xl);
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 0 0 var(--space-4);
+  letter-spacing: -0.02em;
+}
+
+.rainbow-text {
+  background: var(--rainbow);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.hero-subtitle {
+  font-size: var(--fs-md);
+  color: var(--ink-soft);
+  max-width: 560px;
+  margin: 0 auto var(--space-3);
+}
+
+.hero-instrument {
+  font-size: var(--fs-sm);
+  color: var(--ink-mute);
+  margin: 0 0 var(--space-7);
+  letter-spacing: 0.05em;
+}
+
+.hero-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-4);
+  margin: 0 auto var(--space-6);
+  text-align: left;
+}
+
+.hero-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+.hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--rainbow);
+}
+.hero-card h3 {
+  margin: var(--space-2) 0 var(--space-3);
+  font-size: var(--fs-md);
+  color: var(--color-wood-dark);
+}
+.hero-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--ink);
+  color: #fff;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border-bottom: none;
+  box-shadow: var(--shadow);
+  transition: transform var(--t-fast), box-shadow var(--t-fast);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-bottom: none;
+}
+
+/* ---- Modules ---- */
+
+.module {
+  padding: var(--space-7) 0;
+  border-top: 1px solid var(--line);
+}
+.module:first-of-type { border-top: none; }
+
+.module-header {
+  margin-bottom: var(--space-6);
+  padding-left: var(--space-4);
+  border-left: 4px solid;
+  border-image: var(--rainbow) 1;
+}
+
+.module-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-violet);
+  margin-bottom: var(--space-2);
+}
+
+.module h2 {
+  font-size: var(--fs-2xl);
+  margin: 0 0 var(--space-2);
+  letter-spacing: -0.015em;
+}
+
+.module-tagline {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0;
+  font-size: var(--fs-md);
+}
+
+/* ---- Callouts (citations, notes, clés, avertissements) ---- */
+
+.callout {
+  margin: var(--space-5) 0;
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--color-violet);
+  background: var(--bg-soft);
+  position: relative;
+}
+.callout p { margin: 0; }
+.callout p + p { margin-top: var(--space-3); }
+
+.callout::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 4px 0 0 4px;
+}
+
+.callout-quote {
+  background: linear-gradient(135deg, rgba(139, 63, 209, 0.06), rgba(42, 166, 232, 0.06));
+  border-left-color: var(--color-violet);
+  font-style: italic;
+}
+.callout-quote p { font-size: var(--fs-md); color: var(--color-wood-dark); }
+
+.callout-note {
+  background: rgba(42, 166, 232, 0.06);
+  border-left-color: var(--color-blue);
+}
+.callout-note::before { background: var(--color-blue); }
+
+.callout-key {
+  background: linear-gradient(135deg, rgba(245, 192, 38, 0.10), rgba(245, 138, 38, 0.06));
+  border-left-color: var(--color-yellow);
+}
+.callout-key::before { background: var(--color-yellow); }
+.callout-key p::before {
+  content: '🎯 ';
+  margin-right: 4px;
+}
+
+.callout-warn {
+  background: rgba(232, 76, 61, 0.06);
+  border-left-color: var(--color-red);
+}
+.callout-warn::before { background: var(--color-red); }
+.callout-warn p::before {
+  content: '⚠️ ';
+  margin-right: 4px;
+}
+
+.callout-large {
+  text-align: center;
+  padding: var(--space-6) var(--space-5);
+}
+.callout-large p {
+  font-size: var(--fs-lg);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* ---- Tableaux ---- */
+
+.table-wrap {
+  overflow-x: auto;
+  margin: var(--space-5) 0;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: var(--shadow-xs);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+thead {
+  background: var(--bg-soft);
+}
+
+th {
+  text-align: left;
+  font-weight: 700;
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-wood-dark);
+  border-bottom: 2px solid var(--line);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--line-soft);
+  vertical-align: top;
+}
+
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: rgba(245, 192, 38, 0.04); }
+
+/* ---- Diagrammes ASCII ---- */
+
+.diagram {
+  background: var(--bg-tinted);
+  border: 1px dashed var(--color-wood-light);
+  border-radius: var(--radius);
+  padding: var(--space-5);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre;
+  overflow-x: auto;
+  color: var(--color-wood-dark);
+  margin: var(--space-4) 0;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+.diagram code { background: none; padding: 0; color: inherit; }
+
+.diagram-formula {
+  font-size: 1.5em;
+  text-align: center;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  color: var(--color-violet);
+  background: linear-gradient(135deg, rgba(139, 63, 209, 0.08), rgba(245, 192, 38, 0.08));
+}
+
+.diagram-legend {
+  font-size: var(--fs-sm);
+  color: var(--ink-soft);
+  margin-top: calc(var(--space-3) * -0.5);
+  margin-bottom: var(--space-5);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ---- Cartes d'accord (majeur / mineur / diminué) ---- */
+
+.chord-card {
+  margin: var(--space-5) 0;
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.chord-card h4 {
+  margin: 0 0 var(--space-4);
+  font-size: var(--fs-md);
+  color: var(--ink);
+}
+
+.chord-card .diagram {
+  margin: 0 0 var(--space-3);
+}
+
+.chord-major {
+  border-top: 4px solid var(--color-yellow);
+}
+.chord-major::before {
+  content: 'JOYEUX · LUMINEUX';
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-yellow);
+}
+
+.chord-minor {
+  border-top: 4px solid var(--color-blue);
+}
+.chord-minor::before {
+  content: 'TRISTE · MÉLANCOLIQUE';
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-blue);
+}
+
+.chord-dim {
+  border-top: 4px solid var(--color-red);
+}
+.chord-dim::before {
+  content: 'INSTABLE · TENDU';
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-red);
+}
+
+/* ---- Cartes de rôle (analogie maison / salon / porte / nuit) ---- */
+
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+}
+
+.role-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  position: relative;
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--t-base), box-shadow var(--t-base);
+}
+.role-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.role-degree {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-md);
+  margin-bottom: var(--space-3);
+  color: #fff;
+}
+
+.role-card h4 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-md);
+}
+
+.role-meta {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-weight: 600;
+  margin: 0 0 var(--space-2);
+}
+.role-card p:last-child { margin: 0; font-size: var(--fs-sm); }
+
+.role-tonic    .role-degree { background: var(--color-yellow); color: var(--ink); }
+.role-sub      .role-degree { background: var(--color-green); }
+.role-dom      .role-degree { background: var(--color-red); }
+.role-relative .role-degree { background: var(--color-violet); }
+
+/* ---- Exercices ---- */
+
+.exercise {
+  background: linear-gradient(135deg, rgba(91, 201, 74, 0.06), rgba(42, 166, 232, 0.06));
+  border: 1px solid rgba(91, 201, 74, 0.25);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  margin: var(--space-6) 0;
+}
+.exercise h3 {
+  margin-top: 0;
+  font-size: var(--fs-md);
+  color: var(--color-wood-dark);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.exercise h3::before {
+  content: '✏️';
+  font-size: 1.2em;
+}
+.exercise h3 small {
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+.exercise ol { padding-left: var(--space-5); }
+
+/* ---- Blocs Instrument (uke / guitare) ---- */
+
+.instrument-block {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin: var(--space-5) 0;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-xs);
+  position: relative;
+}
+.instrument-block h3 {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.instrument-block h3::before {
+  font-size: 1.4em;
+}
+.instrument-uke   h3::before { content: '🎸'; }
+.instrument-guitar h3::before { content: '🎼'; }
+
+.instrument-uke {
+  border-top: 4px solid var(--color-cyan);
+}
+.instrument-guitar {
+  border-top: 4px solid var(--color-orange);
+}
+
+/* ---- Méthodes & chaîne causale ---- */
+
+.method-steps,
+.causal-chain {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-5) 0;
+  counter-reset: step;
+}
+
+.method-steps li,
+.causal-chain li {
+  counter-increment: step;
+  padding: var(--space-4) var(--space-4) var(--space-4) var(--space-7);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-3);
+  position: relative;
+  box-shadow: var(--shadow-xs);
+}
+
+.method-steps li::before,
+.causal-chain li::before {
+  content: counter(step);
+  position: absolute;
+  left: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background: var(--rainbow);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  box-shadow: var(--shadow-xs);
+}
+
+.causal-chain li:not(:last-child)::after {
+  content: '↓';
+  position: absolute;
+  left: 26px;
+  bottom: -22px;
+  font-size: 18px;
+  color: var(--color-orange);
+  font-weight: 700;
+  z-index: 1;
+}
+
+/* ---- Footer ---- */
+
+.site-footer {
+  margin-top: var(--space-9);
+  padding: var(--space-6) 0 var(--space-5);
+  text-align: center;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: var(--fs-sm);
+}
+.site-footer p { margin: 0 0 var(--space-2); }
+.site-footer p:first-child {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  color: var(--ink);
+  font-style: italic;
+}
+
+.back-top {
+  margin-top: var(--space-4) !important;
+}
+.back-top a {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  background: var(--bg-soft);
+  border-radius: 999px;
+  font-weight: 600;
+  border-bottom: none;
+}
+.back-top a:hover {
+  background: var(--bg-tinted);
+  border-bottom: none;
+}
+
+/* ---- Print ---- */
+
+@media print {
+  .sidebar, .menu-toggle, .skip-link, .back-top { display: none !important; }
+  .layout { grid-template-columns: 1fr; }
+  .content { padding: 0; max-width: 100%; }
+  .module { page-break-inside: avoid; border-top: none; padding-top: var(--space-4); }
+  .module h2 { page-break-after: avoid; }
+  body { background: #fff; }
+  a { color: inherit; }
+  a[href]::after { content: ''; }
+}
