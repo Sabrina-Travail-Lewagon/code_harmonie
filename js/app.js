@@ -83,6 +83,14 @@
     if (sidebar && sidebar.classList.contains('is-open')) {
       closeMenu();
     }
+
+    // Notifie les widgets (animations d'entrée, lazy init)
+    if (window.Widgets) {
+      window.Widgets.initWidgets(next);
+    }
+    window.dispatchEvent(new CustomEvent('slidechange', {
+      detail: { slide: next, index: currentIndex }
+    }));
   }
 
   function goPrev() { goTo(currentIndex - 1, { direction: -1 }); }
