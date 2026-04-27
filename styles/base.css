@@ -22,18 +22,17 @@ body {
   margin: 0;
   font-family: var(--font-body);
   font-size: var(--fs-base);
-  line-height: 1.65;
+  line-height: 1.6;
   color: var(--ink);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   background-image:
-    radial-gradient(circle at 10% 15%, rgba(139, 63, 209, 0.04) 0, transparent 320px),
-    radial-gradient(circle at 90% 10%, rgba(42, 166, 232, 0.04) 0, transparent 320px),
-    radial-gradient(circle at 80% 80%, rgba(245, 138, 38, 0.04) 0, transparent 320px),
-    radial-gradient(circle at 15% 85%, rgba(91, 201, 74, 0.04) 0, transparent 320px);
-  background-attachment: fixed;
+    radial-gradient(circle at 10% 15%, rgba(139, 63, 209, 0.05) 0, transparent 360px),
+    radial-gradient(circle at 90% 10%, rgba(42, 166, 232, 0.05) 0, transparent 360px),
+    radial-gradient(circle at 80% 85%, rgba(245, 138, 38, 0.05) 0, transparent 360px),
+    radial-gradient(circle at 15% 85%, rgba(91, 201, 74, 0.05) 0, transparent 360px);
 }
 
 /* ---- Typographie ---- */

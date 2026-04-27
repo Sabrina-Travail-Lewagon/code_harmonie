@@ -1,14 +1,18 @@
 /* =============================================================
-   components.css — Composants visuels (hero, modules, callouts,
-   tables, cartes d'accord, etc.)
+   components.css — Slide hero, module headers, callouts,
+   tables, cartes d'accord, exercices, etc.
    ============================================================= */
 
-/* ---- Hero / Intro ---- */
+/* ---- Slide hero (intro) ---- */
 
-.hero {
-  text-align: center;
-  padding: var(--space-7) 0 var(--space-8);
-  position: relative;
+.slide-hero { text-align: center; }
+
+.slide-hero .slide-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  align-items: center;
 }
 
 .eyebrow {
@@ -58,10 +62,12 @@
 
 .hero-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: var(--space-4);
   margin: 0 auto var(--space-6);
   text-align: left;
+  width: 100%;
+  max-width: 720px;
 }
 
 .hero-card {
@@ -89,7 +95,7 @@
   margin: 0;
   color: var(--ink-soft);
   font-size: var(--fs-sm);
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
 .btn-primary {
@@ -101,32 +107,28 @@
   font-weight: 700;
   padding: 14px 28px;
   border-radius: 999px;
-  border-bottom: none;
+  border: none;
+  cursor: pointer;
   box-shadow: var(--shadow);
   transition: transform var(--t-fast), box-shadow var(--t-fast);
+  font-size: var(--fs-base);
+  text-decoration: none;
 }
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
-  border-bottom: none;
 }
 
-/* ---- Modules ---- */
+/* ---- Slide standard ---- */
 
-.module {
-  padding: var(--space-7) 0;
-  border-top: 1px solid var(--line);
-}
-.module:first-of-type { border-top: none; }
-
-.module-header {
-  margin-bottom: var(--space-6);
+.slide-header {
+  margin-bottom: var(--space-5);
   padding-left: var(--space-4);
   border-left: 4px solid;
   border-image: var(--rainbow) 1;
 }
 
-.module-tag {
+.slide-tag {
   display: inline-block;
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
@@ -137,41 +139,41 @@
   margin-bottom: var(--space-2);
 }
 
-.module h2 {
+.slide h2 {
   font-size: var(--fs-2xl);
   margin: 0 0 var(--space-2);
   letter-spacing: -0.015em;
+  line-height: 1.15;
 }
 
-.module-tagline {
-  font-style: italic;
-  color: var(--ink-soft);
-  margin: 0;
-  font-size: var(--fs-md);
+.slide-finale {
+  text-align: center;
+}
+.slide-finale .slide-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  align-items: center;
+  gap: var(--space-3);
+}
+.slide-finale .slide-header {
+  border-left: none;
+  padding-left: 0;
+  text-align: center;
 }
 
 /* ---- Callouts (citations, notes, clés, avertissements) ---- */
 
 .callout {
-  margin: var(--space-5) 0;
+  margin: var(--space-4) 0;
   padding: var(--space-4) var(--space-5);
   border-radius: var(--radius);
   border-left: 4px solid var(--color-violet);
   background: var(--bg-soft);
-  position: relative;
 }
 .callout p { margin: 0; }
 .callout p + p { margin-top: var(--space-3); }
-
-.callout::before {
-  content: '';
-  position: absolute;
-  left: -4px;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  border-radius: 4px 0 0 4px;
-}
 
 .callout-quote {
   background: linear-gradient(135deg, rgba(139, 63, 209, 0.06), rgba(42, 166, 232, 0.06));
@@ -181,26 +183,23 @@
 .callout-quote p { font-size: var(--fs-md); color: var(--color-wood-dark); }
 
 .callout-note {
-  background: rgba(42, 166, 232, 0.06);
+  background: rgba(42, 166, 232, 0.07);
   border-left-color: var(--color-blue);
 }
-.callout-note::before { background: var(--color-blue); }
 
 .callout-key {
-  background: linear-gradient(135deg, rgba(245, 192, 38, 0.10), rgba(245, 138, 38, 0.06));
+  background: linear-gradient(135deg, rgba(245, 192, 38, 0.12), rgba(245, 138, 38, 0.07));
   border-left-color: var(--color-yellow);
 }
-.callout-key::before { background: var(--color-yellow); }
 .callout-key p::before {
   content: '🎯 ';
   margin-right: 4px;
 }
 
 .callout-warn {
-  background: rgba(232, 76, 61, 0.06);
+  background: rgba(232, 76, 61, 0.07);
   border-left-color: var(--color-red);
 }
-.callout-warn::before { background: var(--color-red); }
 .callout-warn p::before {
   content: '⚠️ ';
   margin-right: 4px;
@@ -208,19 +207,20 @@
 
 .callout-large {
   text-align: center;
-  padding: var(--space-6) var(--space-5);
+  padding: var(--space-5) var(--space-5);
 }
 .callout-large p {
   font-size: var(--fs-lg);
   font-family: var(--font-display);
   font-weight: 600;
+  font-style: italic;
 }
 
 /* ---- Tableaux ---- */
 
 .table-wrap {
   overflow-x: auto;
-  margin: var(--space-5) 0;
+  margin: var(--space-4) 0;
   border-radius: var(--radius);
   border: 1px solid var(--line);
   background: #fff;
@@ -233,9 +233,7 @@ table {
   font-size: var(--fs-sm);
 }
 
-thead {
-  background: var(--bg-soft);
-}
+thead { background: var(--bg-soft); }
 
 th {
   text-align: left;
@@ -255,7 +253,11 @@ td {
 }
 
 tbody tr:last-child td { border-bottom: none; }
-tbody tr:hover { background: rgba(245, 192, 38, 0.04); }
+tbody tr:hover { background: rgba(245, 192, 38, 0.05); }
+
+.table-compact td,
+.table-compact th { padding: 6px var(--space-3); }
+.table-compact { font-size: var(--fs-xs); }
 
 /* ---- Diagrammes ASCII ---- */
 
@@ -263,9 +265,9 @@ tbody tr:hover { background: rgba(245, 192, 38, 0.04); }
   background: var(--bg-tinted);
   border: 1px dashed var(--color-wood-light);
   border-radius: var(--radius);
-  padding: var(--space-5);
+  padding: var(--space-4) var(--space-5);
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.6;
   white-space: pre;
   overflow-x: auto;
@@ -288,7 +290,7 @@ tbody tr:hover { background: rgba(245, 192, 38, 0.04); }
   font-size: var(--fs-sm);
   color: var(--ink-soft);
   margin-top: calc(var(--space-3) * -0.5);
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-4);
   text-align: center;
   font-style: italic;
 }
@@ -296,120 +298,60 @@ tbody tr:hover { background: rgba(245, 192, 38, 0.04); }
 /* ---- Cartes d'accord (majeur / mineur / diminué) ---- */
 
 .chord-card {
-  margin: var(--space-5) 0;
-  padding: var(--space-5);
-  border-radius: var(--radius-lg);
+  margin: var(--space-3) 0;
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius);
   background: #fff;
   border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-  position: relative;
-  overflow: hidden;
+  box-shadow: var(--shadow-xs);
 }
 
 .chord-card h4 {
-  margin: 0 0 var(--space-4);
-  font-size: var(--fs-md);
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-base);
   color: var(--ink);
 }
+.chord-card p { margin: 0; font-size: var(--fs-sm); color: var(--ink-soft); }
 
-.chord-card .diagram {
-  margin: 0 0 var(--space-3);
-}
+.chord-major { border-left: 5px solid var(--color-yellow); }
+.chord-minor { border-left: 5px solid var(--color-blue); }
+.chord-dim   { border-left: 5px solid var(--color-red); }
 
-.chord-major {
-  border-top: 4px solid var(--color-yellow);
-}
-.chord-major::before {
-  content: 'JOYEUX · LUMINEUX';
-  position: absolute;
-  top: var(--space-3);
-  right: var(--space-4);
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: var(--color-yellow);
-}
-
-.chord-minor {
-  border-top: 4px solid var(--color-blue);
-}
-.chord-minor::before {
-  content: 'TRISTE · MÉLANCOLIQUE';
-  position: absolute;
-  top: var(--space-3);
-  right: var(--space-4);
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: var(--color-blue);
-}
-
-.chord-dim {
-  border-top: 4px solid var(--color-red);
-}
-.chord-dim::before {
-  content: 'INSTABLE · TENDU';
-  position: absolute;
-  top: var(--space-3);
-  right: var(--space-4);
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: var(--color-red);
-}
-
-/* ---- Cartes de rôle (analogie maison / salon / porte / nuit) ---- */
+/* ---- Cartes de rôle (analogie famille) ---- */
 
 .role-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: var(--space-4);
-  margin: var(--space-5) 0;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
 }
 
 .role-card {
   background: #fff;
   border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: var(--space-5);
-  position: relative;
+  border-radius: var(--radius);
+  padding: var(--space-4);
   box-shadow: var(--shadow-xs);
-  transition: transform var(--t-base), box-shadow var(--t-base);
+  transition: transform var(--t-base);
+  text-align: center;
 }
-.role-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
-}
+.role-card:hover { transform: translateY(-2px); }
 
 .role-degree {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 38px; height: 38px;
   border-radius: 50%;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: var(--fs-md);
-  margin-bottom: var(--space-3);
+  font-size: var(--fs-base);
+  margin-bottom: var(--space-2);
   color: #fff;
 }
-
-.role-card h4 {
-  margin: 0 0 var(--space-2);
-  font-size: var(--fs-md);
-}
-
-.role-meta {
-  font-style: italic;
-  color: var(--ink-soft);
-  font-weight: 600;
-  margin: 0 0 var(--space-2);
-}
-.role-card p:last-child { margin: 0; font-size: var(--fs-sm); }
+.role-card h4 { margin: 0 0 4px; font-size: var(--fs-base); }
+.role-meta { font-style: italic; color: var(--ink-soft); font-weight: 600; margin: 0 0 4px; font-size: var(--fs-sm); }
+.role-card p:last-child { margin: 0; font-size: var(--fs-xs); color: var(--ink-mute); }
 
 .role-tonic    .role-degree { background: var(--color-yellow); color: var(--ink); }
 .role-sub      .role-degree { background: var(--color-green); }
@@ -419,60 +361,45 @@ tbody tr:hover { background: rgba(245, 192, 38, 0.04); }
 /* ---- Exercices ---- */
 
 .exercise {
-  background: linear-gradient(135deg, rgba(91, 201, 74, 0.06), rgba(42, 166, 232, 0.06));
-  border: 1px solid rgba(91, 201, 74, 0.25);
-  border-radius: var(--radius-lg);
-  padding: var(--space-5) var(--space-6);
-  margin: var(--space-6) 0;
+  background: linear-gradient(135deg, rgba(91, 201, 74, 0.07), rgba(42, 166, 232, 0.06));
+  border: 1px solid rgba(91, 201, 74, 0.30);
+  border-radius: var(--radius);
+  padding: var(--space-4) var(--space-5);
+  margin: var(--space-4) 0;
 }
 .exercise h3 {
-  margin-top: 0;
+  margin: 0 0 var(--space-3);
   font-size: var(--fs-md);
   color: var(--color-wood-dark);
   display: flex;
   align-items: center;
   gap: var(--space-2);
 }
-.exercise h3::before {
-  content: '✏️';
-  font-size: 1.2em;
-}
+.exercise h3::before { content: '✏️'; font-size: 1.2em; }
 .exercise h3 small {
   font-size: var(--fs-sm);
   font-weight: 400;
   color: var(--ink-soft);
 }
-.exercise ol { padding-left: var(--space-5); }
+.exercise ol { padding-left: var(--space-5); margin: 0; }
+.exercise ol li { margin-bottom: var(--space-2); }
+.exercise p { margin: var(--space-3) 0 0; font-weight: 600; }
 
 /* ---- Blocs Instrument (uke / guitare) ---- */
 
 .instrument-block {
   background: #fff;
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
-  margin: var(--space-5) 0;
+  border-radius: var(--radius);
+  padding: var(--space-5);
+  margin: var(--space-3) 0;
   border: 1px solid var(--line);
   box-shadow: var(--shadow-xs);
-  position: relative;
 }
-.instrument-block h3 {
-  margin-top: 0;
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-.instrument-block h3::before {
-  font-size: 1.4em;
-}
-.instrument-uke   h3::before { content: '🎸'; }
-.instrument-guitar h3::before { content: '🎼'; }
+.instrument-block ul { padding-left: var(--space-5); margin: var(--space-3) 0; }
+.instrument-block li { margin-bottom: var(--space-2); }
 
-.instrument-uke {
-  border-top: 4px solid var(--color-cyan);
-}
-.instrument-guitar {
-  border-top: 4px solid var(--color-orange);
-}
+.instrument-uke   { border-top: 4px solid var(--color-cyan); }
+.instrument-guitar{ border-top: 4px solid var(--color-orange); }
 
 /* ---- Méthodes & chaîne causale ---- */
 
@@ -480,20 +407,21 @@ tbody tr:hover { background: rgba(245, 192, 38, 0.04); }
 .causal-chain {
   list-style: none;
   padding: 0;
-  margin: var(--space-5) 0;
+  margin: var(--space-4) 0;
   counter-reset: step;
 }
 
 .method-steps li,
 .causal-chain li {
   counter-increment: step;
-  padding: var(--space-4) var(--space-4) var(--space-4) var(--space-7);
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-7);
   background: #fff;
   border: 1px solid var(--line);
-  border-radius: var(--radius);
-  margin-bottom: var(--space-3);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-2);
   position: relative;
   box-shadow: var(--shadow-xs);
+  font-size: var(--fs-sm);
 }
 
 .method-steps li::before,
@@ -503,8 +431,7 @@ tbody tr:hover { background: rgba(245, 192, 38, 0.04); }
   left: var(--space-3);
   top: 50%;
   transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
+  width: 28px; height: 28px;
   background: var(--rainbow);
   color: #fff;
   border-radius: 50%;
@@ -513,64 +440,20 @@ tbody tr:hover { background: rgba(245, 192, 38, 0.04); }
   justify-content: center;
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: var(--fs-sm);
+  font-size: var(--fs-xs);
   box-shadow: var(--shadow-xs);
 }
 
-.causal-chain li:not(:last-child)::after {
-  content: '↓';
-  position: absolute;
-  left: 26px;
-  bottom: -22px;
-  font-size: 18px;
-  color: var(--color-orange);
-  font-weight: 700;
-  z-index: 1;
+/* ---- Optimisations responsive du contenu des slides ---- */
+
+@media (max-width: 768px) {
+  .hero-cards { grid-template-columns: 1fr; }
+  .role-grid { grid-template-columns: repeat(2, 1fr); }
+  .diagram { font-size: 11px; padding: var(--space-3); }
+  .diagram-formula { font-size: 1.25em; letter-spacing: 0.15em; }
 }
 
-/* ---- Footer ---- */
-
-.site-footer {
-  margin-top: var(--space-9);
-  padding: var(--space-6) 0 var(--space-5);
-  text-align: center;
-  border-top: 1px solid var(--line);
-  color: var(--ink-soft);
-  font-size: var(--fs-sm);
-}
-.site-footer p { margin: 0 0 var(--space-2); }
-.site-footer p:first-child {
-  font-family: var(--font-display);
-  font-size: var(--fs-md);
-  color: var(--ink);
-  font-style: italic;
-}
-
-.back-top {
-  margin-top: var(--space-4) !important;
-}
-.back-top a {
-  display: inline-block;
-  padding: var(--space-2) var(--space-4);
-  background: var(--bg-soft);
-  border-radius: 999px;
-  font-weight: 600;
-  border-bottom: none;
-}
-.back-top a:hover {
-  background: var(--bg-tinted);
-  border-bottom: none;
-}
-
-/* ---- Print ---- */
-
-@media print {
-  .sidebar, .menu-toggle, .skip-link, .back-top { display: none !important; }
-  .layout { grid-template-columns: 1fr; }
-  .content { padding: 0; max-width: 100%; }
-  .module { page-break-inside: avoid; border-top: none; padding-top: var(--space-4); }
-  .module h2 { page-break-after: avoid; }
-  body { background: #fff; }
-  a { color: inherit; }
-  a[href]::after { content: ''; }
+@media (max-width: 480px) {
+  .role-grid { grid-template-columns: 1fr; }
+  .table-compact { font-size: 11px; }
 }

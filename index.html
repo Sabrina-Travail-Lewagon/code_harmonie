@@ -2,8 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Le Code de l'Harmonie — La théorie des cordes pour comprendre la musique de l'intérieur. Cours en 12 modules pour ukulélé et guitare." />
+  <meta name="theme-color" content="#FFFBF3" />
   <title>Le Code de l'Harmonie · La théorie des cordes</title>
 
   <link rel="icon" type="image/png" href="assets/logo.png" />
@@ -16,9 +17,9 @@
   <link rel="stylesheet" href="styles/layout.css" />
   <link rel="stylesheet" href="styles/components.css" />
 </head>
-<body>
+<body class="no-js">
 
-  <a class="skip-link" href="#main">Aller au contenu</a>
+  <a class="skip-link" href="#deck">Aller au contenu</a>
 
   <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="sidebar">
     <span></span><span></span><span></span>
@@ -35,965 +36,648 @@
         </div>
       </a>
 
+      <div class="progress-track" aria-hidden="true">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
       <nav class="modules-nav" aria-label="Sommaire des modules">
-        <a class="module-link" href="#intro" data-num="00">
-          <span class="module-num">00</span>
-          <span class="module-title">Introduction</span>
-        </a>
-        <a class="module-link" href="#m1" data-num="01">
-          <span class="module-num">01</span>
-          <span class="module-title">Tu joues déjà de la théorie</span>
-        </a>
-        <a class="module-link" href="#m2" data-num="02">
-          <span class="module-num">02</span>
-          <span class="module-title">Le demi-ton</span>
-        </a>
-        <a class="module-link" href="#m3" data-num="03">
-          <span class="module-num">03</span>
-          <span class="module-title">La gamme majeure</span>
-        </a>
-        <a class="module-link" href="#m4" data-num="04">
-          <span class="module-num">04</span>
-          <span class="module-title">Des notes aux accords</span>
-        </a>
-        <a class="module-link" href="#m5" data-num="05">
-          <span class="module-num">05</span>
-          <span class="module-title">Majeur, mineur, diminué</span>
-        </a>
-        <a class="module-link" href="#m6" data-num="06">
-          <span class="module-num">06</span>
-          <span class="module-title">Les intervalles</span>
-        </a>
-        <a class="module-link" href="#m7" data-num="07">
-          <span class="module-num">07</span>
-          <span class="module-title">La famille des 7 accords</span>
-        </a>
-        <a class="module-link" href="#m8" data-num="08">
-          <span class="module-num">08</span>
-          <span class="module-title">Penser en degrés</span>
-        </a>
-        <a class="module-link" href="#m9" data-num="09">
-          <span class="module-num">09</span>
-          <span class="module-title">Spécificités de l'instrument</span>
-        </a>
-        <a class="module-link" href="#m10" data-num="10">
-          <span class="module-num">10</span>
-          <span class="module-title">Construire un accord</span>
-        </a>
-        <a class="module-link" href="#m11" data-num="11">
-          <span class="module-num">11</span>
-          <span class="module-title">L'ordre causal</span>
-        </a>
-        <a class="module-link" href="#m12" data-num="12">
-          <span class="module-num">12</span>
-          <span class="module-title">Gammes & solos</span>
-        </a>
+        <a class="module-link" href="#intro" data-module="intro"><span class="module-num">00</span><span class="module-title">Introduction</span></a>
+        <a class="module-link" href="#m1"   data-module="m1"><span class="module-num">01</span><span class="module-title">Tu joues déjà de la théorie</span></a>
+        <a class="module-link" href="#m2"   data-module="m2"><span class="module-num">02</span><span class="module-title">Le demi-ton</span></a>
+        <a class="module-link" href="#m3"   data-module="m3"><span class="module-num">03</span><span class="module-title">La gamme majeure</span></a>
+        <a class="module-link" href="#m4"   data-module="m4"><span class="module-num">04</span><span class="module-title">Des notes aux accords</span></a>
+        <a class="module-link" href="#m5"   data-module="m5"><span class="module-num">05</span><span class="module-title">Majeur, mineur, diminué</span></a>
+        <a class="module-link" href="#m6"   data-module="m6"><span class="module-num">06</span><span class="module-title">Les intervalles</span></a>
+        <a class="module-link" href="#m7"   data-module="m7"><span class="module-num">07</span><span class="module-title">La famille des 7 accords</span></a>
+        <a class="module-link" href="#m8"   data-module="m8"><span class="module-num">08</span><span class="module-title">Penser en degrés</span></a>
+        <a class="module-link" href="#m9"   data-module="m9"><span class="module-num">09</span><span class="module-title">Spécificités de l'instrument</span></a>
+        <a class="module-link" href="#m10"  data-module="m10"><span class="module-num">10</span><span class="module-title">Construire un accord</span></a>
+        <a class="module-link" href="#m11"  data-module="m11"><span class="module-num">11</span><span class="module-title">L'ordre causal</span></a>
+        <a class="module-link" href="#m12"  data-module="m12"><span class="module-num">12</span><span class="module-title">Gammes &amp; solos</span></a>
       </nav>
 
       <div class="sidebar-footer">
-        <p>12 modules · Théorie appliquée</p>
+        <p>← / → pour naviguer</p>
       </div>
     </aside>
 
-    <main class="content" id="main">
+    <main class="content">
+      <div class="deck" id="deck" tabindex="0" aria-live="polite" aria-atomic="false">
 
-      <!-- ============================================================
-           INTRO / HERO
-           ============================================================ -->
-      <section class="hero" id="intro" aria-labelledby="hero-title">
-        <p class="eyebrow">Cours en 12 modules</p>
-        <h1 id="hero-title" class="hero-title">
-          Le Code de <span class="rainbow-text">l'Harmonie</span>
-        </h1>
-        <p class="hero-subtitle">La théorie des cordes — comprendre la musique de l'intérieur.</p>
-        <p class="hero-instrument"><em>Ukulélé &amp; Guitare</em></p>
+        <!-- ============================================================
+             INTRO
+             ============================================================ -->
+        <article class="slide slide-hero" data-id="intro" data-module="intro">
+          <div class="slide-inner">
+            <p class="eyebrow">Cours en 12 modules</p>
+            <h1 class="hero-title">Le Code de <span class="rainbow-text">l'Harmonie</span></h1>
+            <p class="hero-subtitle">La théorie des cordes — comprendre la musique de l'intérieur.</p>
+            <p class="hero-instrument"><em>Ukulélé &amp; Guitare</em></p>
 
-        <div class="hero-cards">
-          <article class="hero-card">
-            <h3>Pour qui ?</h3>
-            <p>Tu joues déjà. Quelques chansons, quelques accords. Tu sais enchaîner Do–Sol–Lam–Fa. Et pourtant, tu sens que tu tournes en rond. Tu connais des <em>formes</em>. Pas des <em>accords</em>. Ce cours est fait pour toi.</p>
-          </article>
+            <div class="hero-cards">
+              <div class="hero-card">
+                <h3>Pour qui ?</h3>
+                <p>Tu joues déjà. Quelques chansons, quelques accords. Tu sais enchaîner Do–Sol–Lam–Fa. Et pourtant, tu sens que tu tournes en rond. Tu connais des <em>formes</em>. Pas des <em>accords</em>.</p>
+              </div>
+              <div class="hero-card">
+                <h3>Comment lire ce cours ?</h3>
+                <p>Chaque module construit sur le précédent. <strong>Ne saute rien</strong> — l'objectif n'est pas d'avoir des connaissances, mais d'en comprendre la logique.</p>
+              </div>
+            </div>
 
-          <article class="hero-card">
-            <h3>Comment lire ce cours ?</h3>
-            <p>Chaque module construit sur le précédent. <strong>Ne saute pas un module en pensant le savoir</strong> — l'objectif n'est pas d'avoir des connaissances, mais d'en comprendre la logique. Si à la fin tu peux reconstruire une notion oubliée, tu as gagné.</p>
-          </article>
-        </div>
+            <button class="btn-primary" data-go-next>Commencer →</button>
+          </div>
+        </article>
 
-        <a class="btn-primary" href="#m1">Commencer le module 1 →</a>
-      </section>
+        <!-- ============================================================
+             MODULE 1 — Tu joues déjà de la théorie
+             ============================================================ -->
+        <article class="slide" data-id="m1-1" data-module="m1">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 1 · La révélation</span>
+              <h2>Tu joues déjà de la théorie</h2>
+            </header>
+            <p>Les 7 accords que tu connais peut-être déjà — Do, Ré mineur, Mi mineur, Fa, Sol, La mineur, Si diminué — viennent tous <strong>de la même gamme</strong>. Ce n'est pas un hasard. C'est une règle.</p>
+            <p>Mieux : si tu sais enchaîner <strong>Do – Sol – La mineur – Fa</strong>, tu joues déjà une suite de <strong>degrés</strong> (I – V – vi – IV) qui structure des centaines de chansons populaires : <em>Let It Be</em>, <em>No Woman No Cry</em>, <em>Don't Stop Believin'</em>, <em>Someone Like You</em>…</p>
+            <blockquote class="callout callout-quote callout-large">
+              <p>Tu jouais déjà des chiffres romains sans le savoir.</p>
+            </blockquote>
+          </div>
+        </article>
 
-      <!-- ============================================================
-           MODULE 1
-           ============================================================ -->
-      <section class="module" id="m1" aria-labelledby="m1-title">
-        <header class="module-header">
-          <span class="module-tag">Module 1</span>
-          <h2 id="m1-title">Tu joues déjà de la théorie</h2>
-          <p class="module-tagline">Si tu connais déjà C, Am, F, G</p>
-        </header>
+        <article class="slide" data-id="m1-2" data-module="m1">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 1 · Le contrat</span>
+              <h2>Ce que ce cours va t'apprendre</h2>
+            </header>
+            <p>Pas des formes nouvelles à mémoriser. <strong>La logique</strong> qui se cache derrière les formes que tu connais déjà.</p>
+            <p>À la fin, tu pourras :</p>
+            <ul>
+              <li>comprendre pourquoi un accord sonne bien après un autre,</li>
+              <li>transposer une chanson dans n'importe quelle tonalité,</li>
+              <li>construire un accord à partir de zéro,</li>
+              <li>improviser un solo sans réfléchir aux notes.</li>
+            </ul>
+            <blockquote class="callout callout-note">
+              <p>12 modules. Pratique-first. Aucune mémorisation par cœur. <strong>Tout découle de tout.</strong></p>
+            </blockquote>
+          </div>
+        </article>
 
-        <h3>La révélation</h3>
-        <p>Les 7 accords que tu connais peut-être déjà — Do, Ré mineur, Mi mineur, Fa, Sol, La mineur, Si diminué — viennent tous <strong>de la même gamme</strong>. Ce n'est pas un hasard. C'est une règle.</p>
-        <p>Mieux : si tu sais enchaîner <strong>Do – Sol – La mineur – Fa</strong>, tu joues déjà une suite de <strong>degrés</strong> (I – V – vi – IV) qui structure des centaines de chansons populaires : <em>Let It Be</em>, <em>No Woman No Cry</em>, <em>Don't Stop Believin'</em>, <em>Someone Like You</em>…</p>
-
-        <blockquote class="callout callout-quote">
-          <p>Tu jouais déjà des chiffres romains sans le savoir.</p>
-        </blockquote>
-
-        <h3>Ce que ce cours va t'apprendre</h3>
-        <p>Pas des formes nouvelles à mémoriser. <strong>La logique</strong> qui se cache derrière les formes que tu connais déjà.</p>
-        <p>À la fin, tu pourras :</p>
-        <ul>
-          <li>comprendre pourquoi un accord sonne bien après un autre,</li>
-          <li>transposer une chanson dans n'importe quelle tonalité sans connaître les accords,</li>
-          <li>construire un accord à partir de zéro,</li>
-          <li>improviser un solo qui sonne juste sans réfléchir aux notes.</li>
-        </ul>
-
-        <h3>Le contrat</h3>
-        <p>12 modules. Pratique-first. Aucune mémorisation par cœur. Tout découle de tout.</p>
-
-        <blockquote class="callout callout-note">
-          <p>Premier outil indispensable : <strong>savoir mesurer sur le manche</strong>. C'est le module 2.</p>
-        </blockquote>
-      </section>
-
-      <!-- ============================================================
-           MODULE 2
-           ============================================================ -->
-      <section class="module" id="m2" aria-labelledby="m2-title">
-        <header class="module-header">
-          <span class="module-tag">Module 2</span>
-          <h2 id="m2-title">Le demi-ton, la brique de base</h2>
-          <p class="module-tagline">L'outil de mesure</p>
-        </header>
-
-        <p>Avant de parler d'accords ou de gammes, il faut un <strong>outil de mesure</strong>. Sans cet outil, le reste reste flou. Avec lui, tout devient mécanique.</p>
-
-        <h3>Le demi-ton</h3>
-        <p>En musique, la plus petite distance possible entre deux notes s'appelle un <strong>demi-ton</strong>.</p>
-        <p>Sur le manche de ton ukulélé ou de ta guitare, c'est simple : <strong>un demi-ton = une case</strong>. Voilà tout.</p>
-
-        <pre class="diagram"><code>Corde à vide   →   case 1   →   case 2   →   case 3
+        <!-- ============================================================
+             MODULE 2 — Le demi-ton
+             ============================================================ -->
+        <article class="slide" data-id="m2-1" data-module="m2">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 2 · L'outil de mesure</span>
+              <h2>Le demi-ton</h2>
+            </header>
+            <p>En musique, la plus petite distance possible entre deux notes s'appelle un <strong>demi-ton</strong>.</p>
+            <p>Sur le manche de ton ukulélé ou de ta guitare, c'est simple : <strong>un demi-ton = une case</strong>. Voilà tout.</p>
+            <pre class="diagram"><code>Corde à vide   →   case 1   →   case 2   →   case 3
     Sol              Sol#           La             La#
     ←── 1 demi-ton ──→←── 1 demi-ton ──→</code></pre>
+          </div>
+        </article>
 
-        <h3>Le ton</h3>
-        <p>Un <strong>ton</strong> = deux demi-tons = deux cases.</p>
-        <p>Ces deux unités — le ton (T) et le demi-ton (½ ou S) — suffisent à mesurer <strong>n'importe quel intervalle musical</strong>. Tout ce qui suit dans ce cours sera exprimé avec ces deux unités.</p>
+        <article class="slide" data-id="m2-2" data-module="m2">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 2 · La règle d'or</span>
+              <h2>Le ton et le demi-ton</h2>
+            </header>
+            <p>Un <strong>ton</strong> = deux demi-tons = deux cases. Avec ces deux unités, on mesure <strong>n'importe quel intervalle musical</strong>.</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Unité</th><th>Symbole</th><th>Cases</th></tr></thead>
+                <tbody>
+                  <tr><td>Demi-ton</td><td>½ ou S</td><td>1 case</td></tr>
+                  <tr><td>Ton</td><td>T</td><td>2 cases</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <blockquote class="callout callout-key">
+              <p><strong>Sur ton manche, monter d'une case = monter d'un demi-ton.</strong> C'est la seule règle du module. Tout ce qui vient après en découle.</p>
+            </blockquote>
+          </div>
+        </article>
 
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Unité</th><th>Symbole</th><th>Cases</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Demi-ton</td><td>½ ou S</td><td>1 case</td></tr>
-              <tr><td>Ton</td><td>T</td><td>2 cases</td></tr>
-            </tbody>
-          </table>
-        </div>
+        <!-- ============================================================
+             MODULE 3 — La gamme majeure
+             ============================================================ -->
+        <article class="slide" data-id="m3-1" data-module="m3">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 3 · La loi</span>
+              <h2>Une gamme n'est pas une liste</h2>
+            </header>
+            <p>Une gamme n'est pas une liste de notes. C'est un <strong>patron de distances</strong> entre les notes. Ce patron lui donne sa couleur, son identité.</p>
+            <p>La gamme majeure suit toujours exactement ce patron, quelle que soit la note de départ :</p>
+            <pre class="diagram diagram-formula"><code>T – T – ½ – T – T – T – ½</code></pre>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Symbole</th><th>Distance</th><th>Cases</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>T</strong></td><td>Ton</td><td>2 cases</td></tr>
+                  <tr><td><strong>½</strong></td><td>Demi-ton</td><td>1 case</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </article>
 
-        <h3>Pourquoi ça compte</h3>
-        <p>Sans cet outil :</p>
-        <ul>
-          <li>« Une gamme majeure sonne joyeuse » = vague.</li>
-          <li>« Un accord mineur a une tierce mineure » = mystère.</li>
-        </ul>
-        <p>Avec cet outil :</p>
-        <ul>
-          <li>« Une gamme majeure suit le schéma T-T-½-T-T-T-½ » = mesurable.</li>
-          <li>« Une tierce mineure = 3 demi-tons = 3 cases » = vérifiable.</li>
-        </ul>
-
-        <blockquote class="callout callout-key">
-          <p><strong>Sur ton manche, monter d'une case = monter d'un demi-ton.</strong> C'est la seule règle du module. Tout ce qui vient après en découle.</p>
-        </blockquote>
-      </section>
-
-      <!-- ============================================================
-           MODULE 3
-           ============================================================ -->
-      <section class="module" id="m3" aria-labelledby="m3-title">
-        <header class="module-header">
-          <span class="module-tag">Module 3</span>
-          <h2 id="m3-title">La gamme majeure : le patron T-T-½-T-T-T-½</h2>
-          <p class="module-tagline">La loi</p>
-        </header>
-
-        <h3>Une gamme n'est pas une liste</h3>
-        <p>Une gamme <strong>n'est pas une liste de notes</strong>. C'est un <strong>patron de distances</strong> entre les notes. Ce patron est ce qui lui donne sa couleur, son identité sonore.</p>
-        <p>C'est une distinction fondamentale : <strong>la gamme de Do n'a rien de spécial dans ses notes</strong> — elle est spéciale uniquement parce que ses notes respectent un certain schéma d'écarts.</p>
-
-        <h3>La formule universelle</h3>
-        <p>La gamme majeure suit toujours exactement ce patron, quelle que soit la note de départ :</p>
-
-        <pre class="diagram diagram-formula"><code>T – T – ½ – T – T – T – ½</code></pre>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Symbole</th><th>Distance</th><th>Cases</th></tr></thead>
-            <tbody>
-              <tr><td><strong>T</strong></td><td>Ton</td><td>2 cases</td></tr>
-              <tr><td><strong>½</strong></td><td>Demi-ton</td><td>1 case</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Appliqué à Do majeur</h3>
-        <pre class="diagram"><code>Do → Ré → Mi → Fa → Sol → La → Si → Do
+        <article class="slide" data-id="m3-2" data-module="m3">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 3 · Application</span>
+              <h2>Do majeur, puis Sol majeur</h2>
+            </header>
+            <pre class="diagram"><code>Do → Ré → Mi → Fa → Sol → La → Si → Do
    T    T    ½    T     T    T    ½</code></pre>
-        <p>Aucun dièse, aucun bémol. <strong>Do majeur est la tonalité « propre »</strong> — c'est pour ça qu'on y commence toujours.</p>
-
-        <h3>Appliqué à Sol majeur — le cas du Fa♯</h3>
-        <p>Maintenant, applique le même patron en partant de Sol :</p>
-        <pre class="diagram"><code>Sol → La → Si → Do → Ré → Mi → Fa# → Sol
+            <p>Aucun dièse, aucun bémol. <strong>Do majeur est la tonalité « propre »</strong>.</p>
+            <pre class="diagram"><code>Sol → La → Si → Do → Ré → Mi → Fa# → Sol
     T    T    ½    T    T    T     ½</code></pre>
-        <p>Pourquoi <strong>Fa♯</strong> et pas Fa naturel ? Parce que le 6e intervalle doit être un <strong>ton</strong>. Entre Mi et Fa naturel, il n'y a qu'un demi-ton — le patron serait cassé, la gamme ne sonnerait plus majeur.</p>
+            <p>Pourquoi <strong>Fa♯</strong> ? Parce que le 6<sup>e</sup> intervalle doit être un <strong>ton</strong>. Sans le dièse, le patron serait cassé.</p>
+            <blockquote class="callout callout-key">
+              <p>Les dièses et bémols ne sont pas là pour compliquer. Ils sont là pour <strong>préserver le patron</strong>, quelle que soit la note de départ.</p>
+            </blockquote>
+          </div>
+        </article>
 
-        <blockquote class="callout callout-key">
-          <p><strong>Principe fondamental</strong> : les dièses et bémols dans une gamme <strong>ne sont pas là pour compliquer les choses</strong>. Ils sont là pour <strong>préserver le patron</strong>, quelle que soit la note de départ.</p>
-        </blockquote>
-
-        <h3>Le piège Mi → Fa et Si → Do</h3>
-        <p>Sur le manche, tu t'habitues à monter de <strong>2 cases</strong> entre les notes naturelles. Mais deux paires font exception :</p>
-        <ul>
-          <li><strong>Mi → Fa</strong> : aucune note entre eux. <strong>1 seule case</strong>, pas 2.</li>
-          <li><strong>Si → Do</strong> : aucune note entre eux. <strong>1 seule case</strong>, pas 2.</li>
-        </ul>
-        <p><strong>Il n'y a pas de Mi♯ ni de Si♯ dans la gamme naturelle.</strong> Ce sont les deux seules exceptions de toute la gamme.</p>
-
-        <blockquote class="callout callout-note">
-          <p>Ces deux exceptions ne sont pas un piège à mémoriser : ce sont <strong>les deux ½ qui apparaissent dans le patron T-T-½-T-T-T-½</strong>. Tout est cohérent.</p>
-        </blockquote>
-
-        <h3>La gamme chromatique : il y a 12 notes en réalité</h3>
-        <pre class="diagram"><code>Do  Do#  Ré  Ré#  Mi  Fa  Fa#  Sol  Sol#  La  La#  Si  Do
+        <article class="slide" data-id="m3-3" data-module="m3">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 3 · Les 12 notes</span>
+              <h2>Mi → Fa, Si → Do : les exceptions</h2>
+            </header>
+            <p>Sur le manche, on monte de <strong>2 cases</strong> entre les notes naturelles. Sauf <strong>Mi → Fa</strong> et <strong>Si → Do</strong> : <strong>1 seule case</strong>. Pas de Mi♯ ni de Si♯.</p>
+            <pre class="diagram"><code>Do  Do#  Ré  Ré#  Mi  Fa  Fa#  Sol  Sol#  La  La#  Si  Do
  ✓   ·   ✓   ·    ✓   ✓   ·    ✓    ·    ✓    ·   ✓</code></pre>
-        <p class="diagram-legend">✓ = notes de Do Majeur (7 notes) · · = notes « entre » (5 notes)</p>
+            <p class="diagram-legend">✓ = notes de Do Majeur (7) · · = dièses/bémols (5)</p>
+            <p>La <strong>gamme chromatique</strong> = les 12 notes existantes. Do Majeur en utilise 7. <strong>♯</strong> = +1 case · <strong>♭</strong> = −1 case · <strong>Do♯ = Ré♭</strong> (même son).</p>
+          </div>
+        </article>
 
-        <p>La <strong>gamme chromatique</strong> = les 12 notes qui existent en musique occidentale, toutes espacées d'un demi-ton.</p>
-        <p>Do Majeur en utilise <strong>7</strong>. Les <strong>5 autres</strong> sont les dièses/bémols.</p>
-
-        <h3>Dièses et bémols</h3>
-        <ul>
-          <li><strong>♯ (dièse)</strong> = une case plus haut (+1 demi-ton)</li>
-          <li><strong>♭ (bémol)</strong> = une case plus bas (−1 demi-ton)</li>
-        </ul>
-        <p><strong>Do♯ = Ré♭</strong> : même case, même son. Le nom dépend de la gamme dans laquelle on se trouve.</p>
-
-        <blockquote class="callout callout-note">
-          <p>Tu sais maintenant lire le manche. <strong>La gamme est un schéma</strong>, les dièses sont des <strong>conséquences logiques</strong>, et tu peux retrouver n'importe quelle gamme majeure simplement en appliquant T-T-½-T-T-T-½ depuis n'importe quelle note.</p>
-        </blockquote>
-      </section>
-
-      <!-- ============================================================
-           MODULE 4
-           ============================================================ -->
-      <section class="module" id="m4" aria-labelledby="m4-title">
-        <header class="module-header">
-          <span class="module-tag">Module 4</span>
-          <h2 id="m4-title">Des notes aux accords : la règle 1-3-5</h2>
-          <p class="module-tagline">Les tierces empilées</p>
-        </header>
-
-        <h3>La règle de construction</h3>
-        <p>Une fois que tu as les 7 notes d'une gamme, tu peux construire un accord sur chacune d'elles. La règle est simple :</p>
-
-        <blockquote class="callout callout-quote">
-          <p>Un accord = <strong>3 notes prises en sautant une note sur deux</strong> dans la gamme.</p>
-        </blockquote>
-
-        <p>C'est ce qu'on appelle des <strong>tierces empilées</strong>.</p>
-
-        <h3>Le mot « tierce »</h3>
-        <p>Le mot <strong>tierce</strong> vient du fait qu'on va de la 1<sup>re</sup> à la 3<sup>e</sup> note d'une suite. C'est un <strong>nom de position</strong>, pas une couleur.</p>
-
-        <pre class="diagram"><code>Gamme de Do :   Do  Ré  Mi  Fa  Sol  La  Si
+        <!-- ============================================================
+             MODULE 4 — Des notes aux accords
+             ============================================================ -->
+        <article class="slide" data-id="m4-1" data-module="m4">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 4 · La règle 1-3-5</span>
+              <h2>Des notes aux accords</h2>
+            </header>
+            <blockquote class="callout callout-quote">
+              <p>Un accord = <strong>3 notes prises en sautant une note sur deux</strong> dans la gamme.</p>
+            </blockquote>
+            <p>C'est ce qu'on appelle des <strong>tierces empilées</strong>. Le mot « tierce » désigne juste qu'on va de la 1<sup>re</sup> à la 3<sup>e</sup> note d'une suite.</p>
+            <pre class="diagram"><code>Gamme de Do :   Do  Ré  Mi  Fa  Sol  La  Si
                  1   2   3   4    5   6   7
 
 Accord de Do :  Do       Mi       Sol
                  1        3        5</code></pre>
-
-        <h3>Sur chaque degré de la gamme</h3>
-        <pre class="diagram"><code>Accord de Do :  Do       Mi       Sol      (1, 3, 5)
-Accord de Ré :       Ré       Fa       La  (1, 3, 5)
-Accord de Mi :            Mi       Sol      Si  (1, 3, 5)
-…
-Accord de Si :                    Si       Ré       Fa  (1, 3, 5)</code></pre>
-
-        <p>Tu prends le degré comme point de départ, tu sautes une note, tu prends la suivante, tu sautes encore, tu prends la suivante. <strong>Trois notes, deux sauts.</strong></p>
-
-        <h3>Les 7 accords de la gamme de Do</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Degré</th><th>Accord</th><th>Notes (1-3-5)</th></tr></thead>
-            <tbody>
-              <tr><td>I</td><td><strong>Do</strong></td><td>Do – Mi – Sol</td></tr>
-              <tr><td>II</td><td><strong>Ré mineur</strong></td><td>Ré – Fa – La</td></tr>
-              <tr><td>III</td><td><strong>Mi mineur</strong></td><td>Mi – Sol – Si</td></tr>
-              <tr><td>IV</td><td><strong>Fa</strong></td><td>Fa – La – Do</td></tr>
-              <tr><td>V</td><td><strong>Sol</strong></td><td>Sol – Si – Ré</td></tr>
-              <tr><td>VI</td><td><strong>La mineur</strong></td><td>La – Do – Mi</td></tr>
-              <tr><td>VII</td><td><strong>Si diminué</strong></td><td>Si – Ré – Fa</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <blockquote class="callout callout-note">
-          <p>Ces 7 accords sont les seuls qui utilisent <strong>uniquement</strong> des notes de la gamme de Do. C'est pourquoi ils sonnent bien ensemble — ils partagent le même réservoir de notes.</p>
-        </blockquote>
-
-        <h3>Question naturelle</h3>
-        <p>Tu remarques sans doute que certains accords sont <strong>majeurs</strong> (Do, Fa, Sol), d'autres <strong>mineurs</strong> (Ré, Mi, La) et un est <strong>diminué</strong> (Si). Pourquoi ?</p>
-        <p>C'est exactement la question du module 5.</p>
-      </section>
-
-      <!-- ============================================================
-           MODULE 5
-           ============================================================ -->
-      <section class="module" id="m5" aria-labelledby="m5-title">
-        <header class="module-header">
-          <span class="module-tag">Module 5</span>
-          <h2 id="m5-title">La couleur : majeur, mineur, diminué</h2>
-          <p class="module-tagline">La combinaison des tierces</p>
-        </header>
-
-        <h3>Un accord = deux tierces empilées</h3>
-        <p>On vient de voir qu'un accord = 3 notes (1, 3, 5). Mais entre la 1<sup>re</sup> et la 3<sup>e</sup>, il y a une distance — <strong>une tierce</strong>. Et entre la 3<sup>e</sup> et la 5<sup>e</sup>, il y a aussi une distance — <strong>une tierce</strong>.</p>
-
-        <blockquote class="callout callout-quote">
-          <p><strong>Un accord = deux tierces empilées.</strong> Et c'est la nature de ces deux tierces qui détermine la couleur.</p>
-        </blockquote>
-
-        <h3>Tierce majeure vs tierce mineure</h3>
-        <p>Toutes les tierces ne se valent pas. Il en existe deux variantes, séparées par <strong>un seul demi-ton</strong> :</p>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Distance</th><th>Nom</th><th>Exemple</th></tr></thead>
-            <tbody>
-              <tr><td><strong>4 demi-tons</strong> (4 cases)</td><td>Tierce <strong>majeure</strong></td><td>Do → Mi (T + T)</td></tr>
-              <tr><td><strong>3 demi-tons</strong> (3 cases)</td><td>Tierce <strong>mineure</strong></td><td>Ré → Fa (T + ½)</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <blockquote class="callout callout-key">
-          <p>La différence entre majeur et mineur, c'est <strong>un seul demi-ton d'écart</strong> sur la première tierce. Un demi-ton qui change tout à l'oreille.</p>
-        </blockquote>
-
-        <h3>Les 3 combinaisons de base</h3>
-
-        <div class="chord-card chord-major">
-          <h4>Accord MAJEUR : tierce majeure + tierce mineure (4 + 3)</h4>
-          <pre class="diagram"><code>Do ──────────────── Mi ──────────────── Sol
-   tierce maj (4)       tierce min (3)
-
-4 + 3 = 7 demi-tons → quinte juste → accord MAJEUR</code></pre>
-          <p>Sensation : <strong>joyeux, lumineux, stable.</strong></p>
-        </div>
-
-        <div class="chord-card chord-minor">
-          <h4>Accord MINEUR : tierce mineure + tierce majeure (3 + 4)</h4>
-          <pre class="diagram"><code>Ré ──────────────── Fa ──────────────── La
-   tierce min (3)       tierce maj (4)
-
-3 + 4 = 7 demi-tons → quinte juste → accord MINEUR</code></pre>
-          <p>Sensation : <strong>triste, sombre, mélancolique.</strong> Mais stable aussi (la quinte juste totale est la même).</p>
-        </div>
-
-        <div class="chord-card chord-dim">
-          <h4>Accord DIMINUÉ : tierce mineure + tierce mineure (3 + 3)</h4>
-          <pre class="diagram"><code>Si ──────────────── Ré ──────────────── Fa
-   tierce min (3)       tierce min (3)
-
-3 + 3 = 6 demi-tons → quinte DIMINUÉE → accord DIMINUÉ</code></pre>
-          <p>Sensation : <strong>instable, tendu, qui appelle une résolution.</strong></p>
-        </div>
-
-        <h3>Tableau récapitulatif</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>1<sup>re</sup> tierce</th><th>2<sup>e</sup> tierce</th><th>Total</th><th>Quinte</th><th>Couleur</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Majeure (4)</td><td>Mineure (3)</td><td>7 demi-tons</td><td>Juste</td><td><strong>Majeur</strong></td></tr>
-              <tr><td>Mineure (3)</td><td>Majeure (4)</td><td>7 demi-tons</td><td>Juste</td><td><strong>Mineur</strong></td></tr>
-              <tr><td>Mineure (3)</td><td>Mineure (3)</td><td>6 demi-tons</td><td>Diminuée</td><td><strong>Diminué</strong></td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Pourquoi « diminué » ? Le cas concret de Bdim</h3>
-        <p>Un accord majeur ou mineur a une distance totale de <strong>7 demi-tons</strong>. L'accord diminué n'en a que <strong>6</strong>.</p>
-
-        <blockquote class="callout callout-note">
-          <p><strong>Réduite = diminuée.</strong> Ce n'est pas un nom arbitraire — il décrit littéralement une <strong>quinte plus étroite que la normale</strong>.</p>
-        </blockquote>
-
-        <p>Démontrons-le sur Bdim (Si diminué), pour de bon :</p>
-
-        <h4>Étape 1 — Construire l'accord</h4>
-        <p>On prend la 1<sup>re</sup>, 3<sup>e</sup> et 5<sup>e</sup> note à partir de Si dans la gamme de Do :</p>
-        <pre class="diagram"><code>Gamme :     Do  Ré  Mi  Fa  Sol  La  Si  Do
-Depuis Si :                          Si       Ré       Fa
-                                      1        3        5</code></pre>
-        <p>L'accord de Si = <strong>Si – Ré – Fa</strong></p>
-
-        <h4>Étape 2 — Compter Si → Ré</h4>
-        <pre class="diagram"><code>Si → Do → Do# → Ré
-  1      2       3    demi-tons</code></pre>
-        <p>3 demi-tons = <strong>tierce mineure</strong>.</p>
-
-        <blockquote class="callout callout-warn">
-          <p>Le Do qui suit Si dans la gamme <strong>n'est pas dans l'accord</strong> — il est sauté (règle 1-3-5). La distance Si → Do (1 demi-ton) ne concerne pas la couleur de l'accord.</p>
-        </blockquote>
-
-        <h4>Étape 3 — Compter Ré → Fa</h4>
-        <pre class="diagram"><code>Ré → Ré# → Mi → Fa
-   1       2     3    demi-tons</code></pre>
-        <p>3 demi-tons = <strong>tierce mineure</strong>.</p>
-
-        <h4>Étape 4 — Total</h4>
-        <pre class="diagram"><code>Si ──── Ré ──── Fa
- 3 + 3 = 6 demi-tons → quinte diminuée → Bdim</code></pre>
-
-        <blockquote class="callout callout-key">
-          <p><strong>Ce que ça veut dire à l'oreille</strong> : 6 demi-tons, c'est <strong>exactement la moitié de l'octave</strong> (qui en compte 12). L'accord est parfaitement symétrique. L'oreille perçoit cette symétrie comme <strong>instable, tendue</strong> — c'est pourquoi Bdim cherche toujours à se résoudre vers Do.</p>
-        </blockquote>
-
-        <h3>Aller plus loin : la septième</h3>
-        <p>Un accord de <strong>septième</strong> = accord de base + une <strong>4<sup>e</sup> note</strong> (la 7<sup>e</sup> de la gamme).</p>
-        <p>Exemple — <strong>Sol 7</strong> = Sol + Si + Ré + <strong>Fa</strong>.</p>
-        <p>Le Fa (la 7<sup>e</sup> mineure) crée une dissonance acoustique avec le Si. Ton oreille ressent une tension qui <em>cherche à se résoudre</em> — le Sol7 appelle le Do.</p>
-
-        <blockquote class="callout callout-note">
-          <p>Sol7 → Do : <strong>la résolution la plus courante de la musique occidentale</strong>. Tu l'entends partout, du blues à la pop en passant par la chanson française.</p>
-        </blockquote>
-      </section>
-
-      <!-- ============================================================
-           MODULE 6
-           ============================================================ -->
-      <section class="module" id="m6" aria-labelledby="m6-title">
-        <header class="module-header">
-          <span class="module-tag">Module 6</span>
-          <h2 id="m6-title">Les intervalles : la boussole</h2>
-          <p class="module-tagline">Nommer les distances</p>
-        </header>
-
-        <h3>Les 12 intervalles</h3>
-        <p>Un <strong>intervalle</strong> = la distance entre deux notes, exprimée en demi-tons. Chaque distance a un nom.</p>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Demi-tons</th><th>Nom</th><th>Exemple</th></tr></thead>
-            <tbody>
-              <tr><td>0</td><td>Unisson</td><td>Do – Do</td></tr>
-              <tr><td>1</td><td>Seconde mineure</td><td>Do – Do♯</td></tr>
-              <tr><td>2</td><td>Seconde majeure</td><td>Do – Ré</td></tr>
-              <tr><td>3</td><td>Tierce mineure</td><td>Do – Mi♭</td></tr>
-              <tr><td>4</td><td>Tierce majeure</td><td>Do – Mi</td></tr>
-              <tr><td>5</td><td>Quarte juste</td><td>Do – Fa</td></tr>
-              <tr><td>6</td><td>Triton (quinte diminuée)</td><td>Do – Fa♯</td></tr>
-              <tr><td>7</td><td>Quinte juste</td><td>Do – Sol</td></tr>
-              <tr><td>8</td><td>Sixte mineure</td><td>Do – La♭</td></tr>
-              <tr><td>9</td><td>Sixte majeure</td><td>Do – La</td></tr>
-              <tr><td>10</td><td>Septième mineure</td><td>Do – Si♭</td></tr>
-              <tr><td>11</td><td>Septième majeure</td><td>Do – Si</td></tr>
-              <tr><td>12</td><td>Octave</td><td>Do – Do (aigu)</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>À quoi ça sert ?</h3>
-        <p>Connaître le nom des intervalles, c'est avoir <strong>une boussole</strong> :</p>
-        <ul>
-          <li>Si tu sais qu'une <strong>tierce majeure = 4 cases</strong>, tu peux <strong>construire n'importe quel accord majeur</strong> à partir de n'importe quelle note (module 10).</li>
-          <li>Si tu sais qu'une <strong>quinte juste = 7 cases</strong>, tu peux <strong>vérifier qu'un accord est bien construit</strong>.</li>
-          <li>Si tu sais qu'une <strong>septième mineure = 10 cases</strong>, tu peux <strong>transformer n'importe quel accord majeur en accord 7</strong>.</li>
-        </ul>
-        <p>Sur le manche : monter d'une case = monter d'un demi-ton. <strong>C'est aussi simple que ça.</strong></p>
-
-        <h3>L'oreille avant la tête</h3>
-        <blockquote class="callout callout-quote">
-          <p>La théorie s'ancre par <strong>l'oreille</strong>, pas par la mémoire. Entraîne-toi à reconnaître les intervalles à l'écoute.</p>
-        </blockquote>
-
-        <p>Trois intervalles à reconnaître en priorité :</p>
-        <ul>
-          <li><strong>Tierce majeure</strong> (4 demi-tons) : le début de <em>Frère Jacques</em></li>
-          <li><strong>Tierce mineure</strong> (3 demi-tons) : le début de <em>Greensleeves</em></li>
-          <li><strong>Quinte juste</strong> (7 demi-tons) : le début de <em>Twinkle Twinkle Little Star</em> (Do → Sol)</li>
-        </ul>
-        <p>Une fois ces trois ancrés, tu reconnais un accord majeur, mineur ou la tonique-dominante d'oreille — sans réfléchir.</p>
-      </section>
-
-      <!-- ============================================================
-           MODULE 7
-           ============================================================ -->
-      <section class="module" id="m7" aria-labelledby="m7-title">
-        <header class="module-header">
-          <span class="module-tag">Module 7</span>
-          <h2 id="m7-title">La famille des 7 accords</h2>
-          <p class="module-tagline">L'analogie maison/salon/porte/nuit</p>
-        </header>
-
-        <h3>Une conséquence, pas une règle à apprendre</h3>
-        <p>Tu te souviens des 7 accords du module 4 ? Voici à nouveau le tableau, complété avec leurs <strong>couleurs</strong> :</p>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Degré</th><th>Accord</th><th>Notes</th><th>Couleur</th></tr></thead>
-            <tbody>
-              <tr><td>I</td><td>Do (C)</td><td>Do – Mi – Sol</td><td><strong>Majeur</strong></td></tr>
-              <tr><td>II</td><td>Ré (Dm)</td><td>Ré – Fa – La</td><td>mineur</td></tr>
-              <tr><td>III</td><td>Mi (Em)</td><td>Mi – Sol – Si</td><td>mineur</td></tr>
-              <tr><td>IV</td><td>Fa (F)</td><td>Fa – La – Do</td><td><strong>Majeur</strong></td></tr>
-              <tr><td>V</td><td>Sol (G)</td><td>Sol – Si – Ré</td><td><strong>Majeur</strong></td></tr>
-              <tr><td>VI</td><td>La (Am)</td><td>La – Do – Mi</td><td>mineur</td></tr>
-              <tr><td>VII</td><td>Si (Bdim)</td><td>Si – Ré – Fa</td><td>diminué</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p>La séquence <strong>Maj – min – min – Maj – Maj – min – dim</strong> n'est pas un caprice. C'est une <strong>conséquence automatique</strong> de la construction des accords sur les notes de la gamme. Elle est <strong>identique dans toutes les tonalités majeures</strong>.</p>
-
-        <blockquote class="callout callout-note">
-          <p>Tu n'as rien à mémoriser. Si tu construis 1-3-5 sur chaque degré et que tu mesures les tierces, tu retrouves cette séquence à chaque fois.</p>
-        </blockquote>
-
-        <h3>L'analogie de la famille</h3>
-        <p>Pour ressentir le rôle de chaque accord, voici une analogie qui marche :</p>
-
-        <div class="role-grid">
-          <article class="role-card role-tonic">
-            <span class="role-degree">I</span>
-            <h4>Do — La tonique</h4>
-            <p class="role-meta">La maison.</p>
-            <p>En sécurité. Ça ne tire nulle part.</p>
-          </article>
-
-          <article class="role-card role-sub">
-            <span class="role-degree">IV</span>
-            <h4>Fa — La sous-dominante</h4>
-            <p class="role-meta">Le salon.</p>
-            <p>Confortable, proche, mais un léger élan vers autre chose.</p>
-          </article>
-
-          <article class="role-card role-dom">
-            <span class="role-degree">V</span>
-            <h4>Sol — La dominante</h4>
-            <p class="role-meta">La porte d'entrée vue de l'extérieur.</p>
-            <p>Tension qui appelle le retour au I.</p>
-          </article>
-
-          <article class="role-card role-relative">
-            <span class="role-degree">vi</span>
-            <h4>La m — La relative mineure</h4>
-            <p class="role-meta">La même maison, la nuit.</p>
-            <p>Même lieu, autre lumière.</p>
-          </article>
-        </div>
-
-        <p>Les autres degrés (II, III, VII) sont des <strong>lieux secondaires</strong> — couloirs, escaliers, jardin. Tu en parleras plus tard. Pour l'instant, <strong>les 4 piliers ci-dessus expliquent 80% des chansons populaires</strong>.</p>
-
-        <h3>Le piège de l'émotion</h3>
-        <p>Beaucoup pensent qu'un accord majeur « sonne joyeux » et qu'un accord mineur « sonne triste ». <strong>Faux</strong> — du moins, pas tout seul.</p>
-
-        <blockquote class="callout callout-key">
-          <p><strong>Am dans la famille de Do n'est pas « triste ». Il est chez lui.</strong> Le contexte décide de l'émotion — pas l'accord isolé.</p>
-        </blockquote>
-
-        <p>Joue Am tout seul : il sonne juste. Joue-le après C : il sonne nostalgique. Joue-le après E (extérieur à la gamme) : il sonne sombre.</p>
-
-        <blockquote class="callout callout-quote">
-          <p><strong>L'émotion d'un accord vient toujours de ce qui l'entoure.</strong> Pas de l'accord lui-même.</p>
-        </blockquote>
-
-        <h3>Exemples célèbres</h3>
-        <ul>
-          <li><strong>I – V – vi – IV</strong> (Do – Sol – La m – Fa) : <em>Let It Be</em>, <em>No Woman No Cry</em>, <em>Don't Stop Believin'</em>, <em>Someone Like You</em></li>
-          <li><strong>I – vi – IV – V</strong> (Do – La m – Fa – Sol) : <em>Stand By Me</em>, <em>Every Breath You Take</em>, <em>Toi+Moi</em></li>
-        </ul>
-        <p>Ces deux progressions utilisent <strong>les 4 mêmes accords</strong> mais dans des <strong>ordres différents</strong>. Tu entends que l'émotion change. C'est tout l'objet du module 8.</p>
-      </section>
-
-      <!-- ============================================================
-           MODULE 8
-           ============================================================ -->
-      <section class="module" id="m8" aria-labelledby="m8-title">
-        <header class="module-header">
-          <span class="module-tag">Module 8</span>
-          <h2 id="m8-title">Penser en degrés et transposer</h2>
-          <p class="module-tagline">Les chiffres romains</p>
-        </header>
-
-        <h3>Le déclic : mémoriser des relations, pas des accords</h3>
-        <p>Quand tu penses en degrés (I, II, III…), tu ne mémorises plus des accords — tu mémorises des <strong>relations</strong>.</p>
-        <p>Les progressions <strong>C – Am – F – G</strong> et <strong>G – Em – C – D</strong> sont la <strong>même progression</strong> (I – vi – IV – V), juste <strong>déménagée</strong>.</p>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Degré</th><th>En Do</th><th>En Sol</th><th>En Ré</th></tr></thead>
-            <tbody>
-              <tr><td><strong>I</strong></td><td>C</td><td>G</td><td>D</td></tr>
-              <tr><td><strong>vi</strong></td><td>Am</td><td>Em</td><td>Bm</td></tr>
-              <tr><td><strong>IV</strong></td><td>F</td><td>C</td><td>G</td></tr>
-              <tr><td><strong>V</strong></td><td>G</td><td>D</td><td>A</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <blockquote class="callout callout-note">
-          <p>Même émotion. Trois tonalités. <strong>Zéro connaissance supplémentaire</strong> — juste la logique appliquée trois fois.</p>
-        </blockquote>
-
-        <h3>Pourquoi verbaliser les degrés à voix haute</h3>
-        <p>Voici un truc tout bête, mais qui change tout :</p>
-        <ul>
-          <li>Jouer C <strong>sans rien dire</strong> = mémoriser une <strong>forme de main</strong>.</li>
-          <li>Jouer C <strong>en disant <em>« un »</em> à voix haute</strong> = câbler <strong>le degré ET le geste</strong> dans le même neurone.</li>
-        </ul>
-        <p>Six mois plus tard, quand quelqu'un te dira <em>« joue I-vi-IV-V en Sol »</em>, ton corps cherchera automatiquement les bonnes formes — parce que tu auras mémorisé une <strong>relation logique</strong>, pas une séquence de formes.</p>
-
-        <div class="exercise">
-          <h3>Exercice — 15 minutes <small>(à faire vraiment, pas à lire)</small></h3>
-          <ol>
-            <li>Joue <strong>C – Am – F – G</strong>. Dis à voix haute : <em>« un – six – quatre – cinq »</em> à chaque accord.</li>
-            <li>Construis la <strong>gamme de Sol</strong> à la main (T-T-½-T-T-T-½ depuis Sol). Trouve le <strong>Fa♯</strong> toi-même.</li>
-            <li>Construis <strong>I – vi – IV – V en Sol</strong>. Tu dois arriver à <strong>G – Em – C – D</strong>. Joue-la en verbalisant les mêmes chiffres.</li>
-            <li><strong>Remarque que ça sonne pareil.</strong> Même émotion, autre tonalité.</li>
-          </ol>
-        </div>
-
-        <blockquote class="callout callout-key">
-          <p>Si à la fin de ces 15 minutes tu peux transposer une progression dans une nouvelle tonalité <strong>sans tableau</strong>, <strong>tu as compris la transposition</strong>. Ce n'est plus de la théorie, c'est devenu un réflexe.</p>
-        </blockquote>
-
-        <h3>Pourquoi transposer ?</h3>
-        <p>Trois cas concrets :</p>
-        <ul>
-          <li><strong>Adapter une chanson à ta voix</strong> (trop aiguë / trop grave en Do → essaie en La).</li>
-          <li><strong>Jouer avec d'autres musiciens</strong> (le guitariste joue en Ré, toi tu transposes pour rester ensemble).</li>
-          <li><strong>Changer la couleur</strong> (la même chanson en Mi sonnera plus brillante qu'en La).</li>
-        </ul>
-        <p>Le <strong>capodastre</strong> (cf. module 9) est un raccourci mécanique de transposition — il ne dispense pas de comprendre.</p>
-      </section>
-
-      <!-- ============================================================
-           MODULE 9
-           ============================================================ -->
-      <section class="module" id="m9" aria-labelledby="m9-title">
-        <header class="module-header">
-          <span class="module-tag">Module 9</span>
-          <h2 id="m9-title">Spécificités de ton instrument</h2>
-          <p class="module-tagline">Sol aigu (Ukulélé) · Barré &amp; Capo (Guitare)</p>
-        </header>
-
-        <blockquote class="callout callout-note">
-          <p>Cette partie diffère selon ton instrument. Choisis ta section.</p>
-        </blockquote>
-
-        <article class="instrument-block instrument-uke">
-          <h3>Ukulélé — L'accordage ré-entrant</h3>
-          <p>Sur l'ukulélé, la <strong>corde Sol est aiguë</strong>, pas grave. Ce n'est PAS la même chose que sur la guitare. C'est l'accordage <strong>ré-entrant</strong>.</p>
-          <p><strong>Accordage GCEA (Sol – Do – Mi – La) :</strong> la corde Sol (corde 1) sonne <strong>plus haut</strong> que la corde Do (corde 2).</p>
-
-          <h4>Numérotation des cordes (haut → bas)</h4>
-          <ul>
-            <li>Corde <strong>1</strong> = Sol (aiguë)</li>
-            <li>Corde <strong>2</strong> = Do (la plus grave)</li>
-            <li>Corde <strong>3</strong> = Mi</li>
-            <li>Corde <strong>4</strong> = La (la plus aiguë)</li>
-          </ul>
-
-          <h4>Ce que ça change pour les solos</h4>
-          <p>La corde Sol, étant aiguë, <strong>ne se comporte pas comme la corde basse d'une guitare</strong>. Elle peut même sonner plus haut que la corde Do à vide. Elle <strong>s'utilise très bien en solo</strong> (blues, pentatonique de Sol…).</p>
-
-          <blockquote class="callout callout-warn">
-            <p><strong>Le piège classique</strong> : penser que le Sol grave (comme à la guitare) existe sur l'uke. Non. Si tu cherches une note grave, va sur la corde Do.</p>
-          </blockquote>
+          </div>
         </article>
 
-        <article class="instrument-block instrument-guitar">
-          <h3>Guitare — Le barré et le capo</h3>
-          <p>Le <strong>barré</strong> = appuyer toutes les cordes avec un seul doigt (généralement l'index) pour créer un <strong>capodastre mobile</strong>.</p>
-
-          <h4>La logique du barré</h4>
-          <ul>
-            <li>Une forme d'accord ouvert (Em, Am, E, A) + un barré = <strong>le même accord transposé</strong> plus haut.</li>
-            <li>Monter d'une case = monter d'un <strong>demi-ton</strong>.</li>
-          </ul>
-
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>Forme de base</th><th>Position du barré</th><th>Accord obtenu</th></tr></thead>
-              <tbody>
-                <tr><td>Em (ouvert)</td><td>Case 1</td><td>Fm</td></tr>
-                <tr><td>Em (ouvert)</td><td>Case 2</td><td>F♯m / Gm♭</td></tr>
-                <tr><td>Em (ouvert)</td><td>Case 3</td><td>Gm</td></tr>
-                <tr><td>E (ouvert)</td><td>Case 1</td><td>F</td></tr>
-                <tr><td>A (ouvert)</td><td>Case 2</td><td>B</td></tr>
-              </tbody>
-            </table>
+        <article class="slide" data-id="m4-2" data-module="m4">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 4 · Les 7 accords</span>
+              <h2>Les 7 accords de Do</h2>
+            </header>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Degré</th><th>Accord</th><th>Notes (1-3-5)</th></tr></thead>
+                <tbody>
+                  <tr><td>I</td><td><strong>Do</strong></td><td>Do – Mi – Sol</td></tr>
+                  <tr><td>II</td><td><strong>Ré mineur</strong></td><td>Ré – Fa – La</td></tr>
+                  <tr><td>III</td><td><strong>Mi mineur</strong></td><td>Mi – Sol – Si</td></tr>
+                  <tr><td>IV</td><td><strong>Fa</strong></td><td>Fa – La – Do</td></tr>
+                  <tr><td>V</td><td><strong>Sol</strong></td><td>Sol – Si – Ré</td></tr>
+                  <tr><td>VI</td><td><strong>La mineur</strong></td><td>La – Do – Mi</td></tr>
+                  <tr><td>VII</td><td><strong>Si diminué</strong></td><td>Si – Ré – Fa</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <blockquote class="callout callout-note">
+              <p>Ces 7 accords utilisent <strong>uniquement</strong> des notes de la gamme de Do — c'est pourquoi ils sonnent bien ensemble.</p>
+            </blockquote>
           </div>
-
-          <blockquote class="callout callout-note">
-            <p>Une seule forme + un barré qui se déplace = <strong>12 accords</strong> différents sur le manche.</p>
-          </blockquote>
-
-          <h4>Le capodastre</h4>
-          <p>Le <strong>capo</strong> est un barré <strong>mécanique</strong> — il transpose tout le manche vers le haut <strong>sans changer tes doigtés</strong>.</p>
-
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>Capo</th><th>La gamme de Do devient...</th></tr></thead>
-              <tbody>
-                <tr><td>0 (sans)</td><td>Do Ré Mi Fa Sol La Si</td></tr>
-                <tr><td>2</td><td>Ré Mi Fa♯ Sol La Si Do♯</td></tr>
-                <tr><td>5</td><td>Fa Sol La Si♭ Do Ré Mi</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <blockquote class="callout callout-key">
-            <p>Si tu as la flemme de barrer en Fa, mets le capo case 1 et joue tes formes de E. Tu joues du Fa <strong>avec des doigtés de Mi</strong>.</p>
-          </blockquote>
         </article>
-      </section>
 
-      <!-- ============================================================
-           MODULE 10
-           ============================================================ -->
-      <section class="module" id="m10" aria-labelledby="m10-title">
-        <header class="module-header">
-          <span class="module-tag">Module 10</span>
-          <h2 id="m10-title">Construire un accord depuis zéro</h2>
-          <p class="module-tagline">La méthode universelle</p>
-        </header>
+        <!-- ============================================================
+             MODULE 5 — Majeur, mineur, diminué
+             ============================================================ -->
+        <article class="slide" data-id="m5-1" data-module="m5">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 5 · Tierces</span>
+              <h2>Un accord = deux tierces empilées</h2>
+            </header>
+            <p>Entre la 1<sup>re</sup> et la 3<sup>e</sup> note, une tierce. Entre la 3<sup>e</sup> et la 5<sup>e</sup>, une autre. <strong>La nature de ces deux tierces détermine la couleur de l'accord.</strong></p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Distance</th><th>Nom</th><th>Exemple</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>4 demi-tons</strong></td><td>Tierce <strong>majeure</strong></td><td>Do → Mi (T + T)</td></tr>
+                  <tr><td><strong>3 demi-tons</strong></td><td>Tierce <strong>mineure</strong></td><td>Ré → Fa (T + ½)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <blockquote class="callout callout-key">
+              <p>La différence entre majeur et mineur, c'est <strong>un seul demi-ton d'écart</strong>.</p>
+            </blockquote>
+          </div>
+        </article>
 
-        <h3>Tu n'as plus besoin de mémoriser les accords</h3>
-        <p>Avec ce que tu sais maintenant, tu peux <strong>construire n'importe quel accord à partir de n'importe quelle note</strong>, sans tableau, sans dictionnaire d'accords.</p>
+        <article class="slide" data-id="m5-2" data-module="m5">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 5 · Les 3 couleurs</span>
+              <h2>Majeur, mineur, diminué</h2>
+            </header>
+            <div class="chord-card chord-major">
+              <h4>MAJEUR (4 + 3) — joyeux, lumineux</h4>
+              <p>Do → Mi (4 cases) → Sol (3 cases). Quinte juste de 7 demi-tons.</p>
+            </div>
+            <div class="chord-card chord-minor">
+              <h4>MINEUR (3 + 4) — triste, mélancolique</h4>
+              <p>Ré → Fa (3 cases) → La (4 cases). Quinte juste de 7 demi-tons.</p>
+            </div>
+            <div class="chord-card chord-dim">
+              <h4>DIMINUÉ (3 + 3) — instable, tendu</h4>
+              <p>Si → Ré (3 cases) → Fa (3 cases). Quinte <strong>diminuée</strong> de 6 demi-tons.</p>
+            </div>
+          </div>
+        </article>
 
-        <h3>La méthode universelle</h3>
-        <ol class="method-steps">
-          <li>Choisir la <strong>note fondamentale</strong> (la racine de l'accord).</li>
-          <li>Monter d'une <strong>tierce majeure</strong> (4 cases) ou d'une <strong>tierce mineure</strong> (3 cases) → 3<sup>e</sup> note.</li>
-          <li>Monter d'une <strong>tierce</strong> complémentaire → 5<sup>e</sup> note.</li>
-          <li>Optionnel : ajouter une <strong>septième</strong> (10 cases au-dessus de la fondamentale pour la 7<sup>e</sup> mineure, 11 pour la 7<sup>e</sup> majeure).</li>
-        </ol>
+        <article class="slide" data-id="m5-3" data-module="m5">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 5 · Aller plus loin</span>
+              <h2>Bdim et la septième</h2>
+            </header>
+            <p>L'accord diminué a une quinte de <strong>6 demi-tons</strong> — exactement la moitié de l'octave. Symétrie parfaite, donc oreille tendue.</p>
+            <blockquote class="callout callout-key">
+              <p>6 demi-tons = la moitié de l'octave. L'accord est instable et cherche à se résoudre vers Do.</p>
+            </blockquote>
+            <p>Un accord de <strong>septième</strong> = accord de base + 4<sup>e</sup> note (la 7<sup>e</sup> de la gamme). Exemple : <strong>Sol7</strong> = Sol + Si + Ré + Fa.</p>
+            <blockquote class="callout callout-note">
+              <p>Sol7 → Do : <strong>la résolution la plus courante de la musique occidentale</strong>.</p>
+            </blockquote>
+          </div>
+        </article>
 
-        <h3>Les 4 formules à connaître</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Type d'accord</th><th>Formule</th><th>Exemple : à partir de Do</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Majeur</strong></td><td>fondamentale + 4 + 3</td><td>Do + Mi + Sol</td></tr>
-              <tr><td><strong>Mineur</strong></td><td>fondamentale + 3 + 4</td><td>Do + Mi♭ + Sol</td></tr>
-              <tr><td><strong>7<sup>e</sup> (dominante)</strong></td><td>majeur + 7<sup>e</sup> mineure (10 demi-tons depuis la fondamentale)</td><td>Do + Mi + Sol + Si♭</td></tr>
-              <tr><td><strong>Diminué</strong></td><td>fondamentale + 3 + 3</td><td>Do + Mi♭ + Sol♭</td></tr>
-            </tbody>
-          </table>
+        <!-- ============================================================
+             MODULE 6 — Les intervalles
+             ============================================================ -->
+        <article class="slide" data-id="m6-1" data-module="m6">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 6 · La boussole</span>
+              <h2>Les 12 intervalles</h2>
+            </header>
+            <div class="table-wrap table-compact">
+              <table>
+                <thead><tr><th>1/2 ton</th><th>Nom</th><th>Exemple</th></tr></thead>
+                <tbody>
+                  <tr><td>0</td><td>Unisson</td><td>Do – Do</td></tr>
+                  <tr><td>1</td><td>Seconde mineure</td><td>Do – Do♯</td></tr>
+                  <tr><td>2</td><td>Seconde majeure</td><td>Do – Ré</td></tr>
+                  <tr><td>3</td><td>Tierce mineure</td><td>Do – Mi♭</td></tr>
+                  <tr><td>4</td><td>Tierce majeure</td><td>Do – Mi</td></tr>
+                  <tr><td>5</td><td>Quarte juste</td><td>Do – Fa</td></tr>
+                  <tr><td>6</td><td>Triton</td><td>Do – Fa♯</td></tr>
+                  <tr><td>7</td><td>Quinte juste</td><td>Do – Sol</td></tr>
+                  <tr><td>8</td><td>Sixte mineure</td><td>Do – La♭</td></tr>
+                  <tr><td>9</td><td>Sixte majeure</td><td>Do – La</td></tr>
+                  <tr><td>10</td><td>Septième mineure</td><td>Do – Si♭</td></tr>
+                  <tr><td>11</td><td>Septième majeure</td><td>Do – Si</td></tr>
+                  <tr><td>12</td><td>Octave</td><td>Do – Do</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </article>
+
+        <article class="slide" data-id="m6-2" data-module="m6">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 6 · L'oreille avant la tête</span>
+              <h2>Reconnaître les intervalles</h2>
+            </header>
+            <p>Connaître les intervalles, c'est avoir <strong>une boussole</strong> : tu peux construire, vérifier, transformer n'importe quel accord.</p>
+            <blockquote class="callout callout-quote">
+              <p>La théorie s'ancre par <strong>l'oreille</strong>, pas par la mémoire.</p>
+            </blockquote>
+            <p>Trois intervalles à ancrer en priorité :</p>
+            <ul>
+              <li><strong>Tierce majeure</strong> (4 ½) : début de <em>Frère Jacques</em></li>
+              <li><strong>Tierce mineure</strong> (3 ½) : début de <em>Greensleeves</em></li>
+              <li><strong>Quinte juste</strong> (7 ½) : début de <em>Twinkle Twinkle</em></li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- ============================================================
+             MODULE 7 — La famille des 7 accords
+             ============================================================ -->
+        <article class="slide" data-id="m7-1" data-module="m7">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 7 · La séquence universelle</span>
+              <h2>Maj – min – min – Maj – Maj – min – dim</h2>
+            </header>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Degré</th><th>Accord</th><th>Couleur</th></tr></thead>
+                <tbody>
+                  <tr><td>I</td><td>Do (C)</td><td><strong>Majeur</strong></td></tr>
+                  <tr><td>II</td><td>Ré (Dm)</td><td>mineur</td></tr>
+                  <tr><td>III</td><td>Mi (Em)</td><td>mineur</td></tr>
+                  <tr><td>IV</td><td>Fa (F)</td><td><strong>Majeur</strong></td></tr>
+                  <tr><td>V</td><td>Sol (G)</td><td><strong>Majeur</strong></td></tr>
+                  <tr><td>VI</td><td>La (Am)</td><td>mineur</td></tr>
+                  <tr><td>VII</td><td>Si (Bdim)</td><td>diminué</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <blockquote class="callout callout-note">
+              <p>Cette séquence est <strong>identique dans toutes les tonalités majeures</strong>. Conséquence automatique de la construction 1-3-5.</p>
+            </blockquote>
+          </div>
+        </article>
+
+        <article class="slide" data-id="m7-2" data-module="m7">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 7 · L'analogie de la maison</span>
+              <h2>4 piliers, 4 fonctions</h2>
+            </header>
+            <div class="role-grid">
+              <div class="role-card role-tonic"><span class="role-degree">I</span><h4>Do</h4><p class="role-meta">La maison.</p><p>En sécurité.</p></div>
+              <div class="role-card role-sub"><span class="role-degree">IV</span><h4>Fa</h4><p class="role-meta">Le salon.</p><p>Léger élan.</p></div>
+              <div class="role-card role-dom"><span class="role-degree">V</span><h4>Sol</h4><p class="role-meta">La porte.</p><p>Tension, appelle le I.</p></div>
+              <div class="role-card role-relative"><span class="role-degree">vi</span><h4>Lam</h4><p class="role-meta">La maison la nuit.</p><p>Même lieu, autre lumière.</p></div>
+            </div>
+            <blockquote class="callout callout-key">
+              <p><strong>L'émotion d'un accord vient toujours de ce qui l'entoure.</strong> Pas de l'accord lui-même.</p>
+            </blockquote>
+          </div>
+        </article>
+
+        <!-- ============================================================
+             MODULE 8 — Penser en degrés
+             ============================================================ -->
+        <article class="slide" data-id="m8-1" data-module="m8">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 8 · Le déclic</span>
+              <h2>Mémoriser des relations, pas des accords</h2>
+            </header>
+            <p>Les progressions <strong>C – Am – F – G</strong> et <strong>G – Em – C – D</strong> sont la <strong>même</strong> (I – vi – IV – V), juste déménagée.</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Degré</th><th>En Do</th><th>En Sol</th><th>En Ré</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>I</strong></td><td>C</td><td>G</td><td>D</td></tr>
+                  <tr><td><strong>vi</strong></td><td>Am</td><td>Em</td><td>Bm</td></tr>
+                  <tr><td><strong>IV</strong></td><td>F</td><td>C</td><td>G</td></tr>
+                  <tr><td><strong>V</strong></td><td>G</td><td>D</td><td>A</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <blockquote class="callout callout-note">
+              <p>Même émotion. Trois tonalités. <strong>Zéro connaissance supplémentaire</strong> — juste la logique appliquée trois fois.</p>
+            </blockquote>
+          </div>
+        </article>
+
+        <article class="slide" data-id="m8-2" data-module="m8">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 8 · Exercice</span>
+              <h2>Verbalise à voix haute</h2>
+            </header>
+            <p>Jouer C <em>en disant</em> <strong>« un »</strong> à voix haute = câbler le degré ET le geste dans le même neurone.</p>
+            <div class="exercise">
+              <h3>15 minutes <small>(à faire vraiment)</small></h3>
+              <ol>
+                <li>Joue <strong>C – Am – F – G</strong>. Dis : <em>« un – six – quatre – cinq »</em>.</li>
+                <li>Construis la <strong>gamme de Sol</strong> (T-T-½-T-T-T-½). Trouve le Fa♯.</li>
+                <li>Construis <strong>I – vi – IV – V en Sol</strong> → <strong>G – Em – C – D</strong>.</li>
+                <li>Remarque que ça sonne pareil. Même émotion, autre tonalité.</li>
+              </ol>
+            </div>
+          </div>
+        </article>
+
+        <!-- ============================================================
+             MODULE 9 — Ton instrument
+             ============================================================ -->
+        <article class="slide" data-id="m9-1" data-module="m9">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 9 · Ukulélé</span>
+              <h2>L'accordage ré-entrant (Sol aigu)</h2>
+            </header>
+            <div class="instrument-block instrument-uke">
+              <p>Sur l'ukulélé, la <strong>corde Sol est aiguë</strong>, pas grave. C'est l'accordage <strong>ré-entrant</strong> GCEA.</p>
+              <ul>
+                <li>Corde <strong>1</strong> = Sol (aiguë)</li>
+                <li>Corde <strong>2</strong> = Do (la plus grave)</li>
+                <li>Corde <strong>3</strong> = Mi</li>
+                <li>Corde <strong>4</strong> = La (la plus aiguë)</li>
+              </ul>
+              <blockquote class="callout callout-warn">
+                <p>Le piège : penser que le Sol grave (guitare) existe sur l'uke. Pour une note grave, va sur la corde Do.</p>
+              </blockquote>
+            </div>
+          </div>
+        </article>
+
+        <article class="slide" data-id="m9-2" data-module="m9">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 9 · Guitare</span>
+              <h2>Le barré et le capodastre</h2>
+            </header>
+            <div class="instrument-block instrument-guitar">
+              <p>Le <strong>barré</strong> = un capodastre mobile fait avec ton index. Une forme ouverte + barré = la même forme transposée.</p>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Forme</th><th>Barré case</th><th>Accord</th></tr></thead>
+                  <tbody>
+                    <tr><td>Em</td><td>1</td><td>Fm</td></tr>
+                    <tr><td>Em</td><td>3</td><td>Gm</td></tr>
+                    <tr><td>E</td><td>1</td><td>F</td></tr>
+                    <tr><td>A</td><td>2</td><td>B</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <blockquote class="callout callout-key">
+                <p>Capo case 1 + doigtés de Mi = tu joues du Fa <strong>sans barrer</strong>.</p>
+              </blockquote>
+            </div>
+          </div>
+        </article>
+
+        <!-- ============================================================
+             MODULE 10 — Construire un accord
+             ============================================================ -->
+        <article class="slide" data-id="m10-1" data-module="m10">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 10 · La méthode</span>
+              <h2>4 formules pour construire n'importe quel accord</h2>
+            </header>
+            <ol class="method-steps">
+              <li>Choisir la <strong>note fondamentale</strong>.</li>
+              <li>Monter d'une <strong>tierce majeure (4)</strong> ou <strong>mineure (3)</strong>.</li>
+              <li>Monter d'une <strong>tierce</strong> complémentaire.</li>
+              <li>Optionnel : ajouter une <strong>septième</strong> (10 ou 11 demi-tons).</li>
+            </ol>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Type</th><th>Formule</th><th>Exemple Do</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Majeur</strong></td><td>fond. + 4 + 3</td><td>Do + Mi + Sol</td></tr>
+                  <tr><td><strong>Mineur</strong></td><td>fond. + 3 + 4</td><td>Do + Mi♭ + Sol</td></tr>
+                  <tr><td><strong>7<sup>e</sup></strong></td><td>maj. + 7e mineure</td><td>Do + Mi + Sol + Si♭</td></tr>
+                  <tr><td><strong>Diminué</strong></td><td>fond. + 3 + 3</td><td>Do + Mi♭ + Sol♭</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </article>
+
+        <article class="slide" data-id="m10-2" data-module="m10">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 10 · Application</span>
+              <h2>Construire La majeur depuis zéro</h2>
+            </header>
+            <div class="exercise">
+              <ol>
+                <li>Fondamentale : <strong>La</strong></li>
+                <li>+ 4 cases : La → La♯ → Si → Do → Do♯ = <strong>Do♯</strong></li>
+                <li>+ 3 cases : Do♯ → Ré → Ré♯ → Mi = <strong>Mi</strong></li>
+              </ol>
+              <p>Résultat : <strong>La – Do♯ – Mi</strong> ✓</p>
+            </div>
+            <blockquote class="callout callout-quote">
+              <p>L'accord diminué a une <strong>symétrie parfaite</strong> — décalé de 3 cases, c'est le même accord. Un seul doigté = 4 positions sur le manche.</p>
+            </blockquote>
+          </div>
+        </article>
+
+        <!-- ============================================================
+             MODULE 11 — L'ordre causal
+             ============================================================ -->
+        <article class="slide" data-id="m11-1" data-module="m11">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 11 · La synthèse</span>
+              <h2>Tout découle de tout</h2>
+            </header>
+            <ol class="causal-chain">
+              <li>Patron de la gamme majeure (T-T-½-T-T-T-½)</li>
+              <li>Notes de la gamme (avec dièses/bémols)</li>
+              <li>Accords construits sur chaque note (1-3-5)</li>
+              <li>Couleurs (Maj-min-min-Maj-Maj-min-dim)</li>
+              <li>Fonctions harmoniques (maison, salon, porte, nuit)</li>
+            </ol>
+            <blockquote class="callout callout-key">
+              <p>Si tu oublies une étape, tu peux la <strong>reconstruire depuis le début</strong>. Tu n'as plus rien à mémoriser de force.</p>
+            </blockquote>
+          </div>
+        </article>
+
+        <article class="slide slide-finale" data-id="m11-2" data-module="m11">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 11 · Ce que tu as changé</span>
+              <h2>Tu es un architecte du son</h2>
+            </header>
+            <p>Tu n'es plus un musicien qui copie des formes. Tu comprends maintenant <strong>pourquoi</strong> les accords fonctionnent ensemble, <strong>comment</strong> ils sont construits, et <strong>où</strong> les trouver sur ton instrument.</p>
+            <blockquote class="callout callout-quote callout-large">
+              <p>Et il te reste un dernier territoire à explorer : non plus les accords, mais <strong>les notes que tu peux jouer entre les accords</strong>.</p>
+            </blockquote>
+          </div>
+        </article>
+
+        <!-- ============================================================
+             MODULE 12 — Gammes & solos
+             ============================================================ -->
+        <article class="slide" data-id="m12-1" data-module="m12">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 12 · La palette</span>
+              <h2>Une gamme = ta palette d'improvisation</h2>
+            </header>
+            <p>Si une chanson est en Do majeur, <strong>toutes les notes de la gamme de Do sonneront juste</strong> sur ses accords.</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Gamme</th><th>Notes (en Do/La)</th><th>Usage</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Majeure</strong></td><td>Do Ré Mi Fa Sol La Si</td><td>Mélodie classique</td></tr>
+                  <tr><td><strong>Min. naturelle</strong></td><td>La Si Do Ré Mi Fa Sol</td><td>Triste, expressif</td></tr>
+                  <tr><td><strong>Penta. majeure</strong></td><td>Do Ré Mi Sol La</td><td>Sécurisée, 5 notes</td></tr>
+                  <tr><td><strong>Penta. mineure</strong></td><td>La Do Ré Mi Sol</td><td>Blues / rock</td></tr>
+                  <tr><td><strong>Blues</strong></td><td>La Do Ré Ré♯ Mi Sol</td><td>+ note bleue</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </article>
+
+        <article class="slide" data-id="m12-2" data-module="m12">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 12 · La pentatonique</span>
+              <h2>5 notes, zéro fausse note</h2>
+            </header>
+            <blockquote class="callout callout-key">
+              <p><strong>Pentatonique majeure = gamme majeure sans le Fa et le Si.</strong></p>
+            </blockquote>
+            <p>On enlève les 2 notes qui « coincent » avec certains accords. Résultat : tu ne peux <strong>littéralement pas faire de fausse note</strong>.</p>
+            <p>Le <strong>blues</strong> ? C'est la pentatonique <strong>mineure</strong> jouée sur des accords <strong>majeurs</strong>. Le clash entre la tierce mineure de la gamme et la tierce majeure des accords = la signature du genre.</p>
+          </div>
+        </article>
+
+        <article class="slide slide-finale" data-id="m12-3" data-module="m12">
+          <div class="slide-inner">
+            <header class="slide-header">
+              <span class="slide-tag">Module 12 · La règle d'or</span>
+              <h2>Do Majeur = La mineur (mêmes notes)</h2>
+            </header>
+            <p>La mineur est la <strong>relative mineure</strong> de Do : <strong>même 7 notes</strong>, point de départ différent. Conséquence : sur C – Am – F – G, la gamme de Do <strong>ne peut pas fausser</strong>.</p>
+            <blockquote class="callout callout-quote callout-large">
+              <p>Joue. Beaucoup. Et chaque fois que tu joues, <strong>rappelle-toi que tu sais exactement pourquoi ça sonne comme ça.</strong></p>
+            </blockquote>
+            <button class="btn-primary" data-go-first>↺ Recommencer le cours</button>
+          </div>
+        </article>
+
+      </div><!-- /.deck -->
+
+      <nav class="slide-nav" aria-label="Navigation entre les slides">
+        <button class="nav-btn nav-prev" id="navPrev" aria-label="Slide précédente">
+          <span aria-hidden="true">←</span>
+          <span class="nav-btn-label">Précédent</span>
+        </button>
+        <div class="nav-meta">
+          <span class="nav-counter" id="navCounter">1 / 28</span>
+          <span class="nav-module" id="navModule">Introduction</span>
         </div>
-
-        <div class="exercise">
-          <h3>Exemple complet — Construire La majeur</h3>
-          <ol>
-            <li>Fondamentale : <strong>La</strong></li>
-            <li>Tierce majeure (+ 4 cases) : La → La♯ → Si → Do → Do♯ = <strong>Do♯</strong></li>
-            <li>Quinte juste (+ 3 cases depuis Do♯) : Do♯ → Ré → Ré♯ → Mi = <strong>Mi</strong></li>
-          </ol>
-          <p>Résultat : <strong>La – Do♯ – Mi</strong> = accord de La majeur. Vérifié.</p>
-        </div>
-
-        <h3>L'accord diminué : la symétrie parfaite</h3>
-        <p>L'accord diminué est la <strong>seule famille avec une symétrie parfaite</strong> — géométriquement régulier sur le manche.</p>
-
-        <blockquote class="callout callout-quote">
-          <p>Décale n'importe quel accord diminué de <strong>3 cases</strong> vers le haut → tu obtiens <strong>le même accord, juste avec une autre note « en bas »</strong>.</p>
-        </blockquote>
-
-        <p>C'est pour ça qu'<strong>un seul doigté d'accord diminué peut servir à 4 endroits différents</strong> sur le manche. Pratique.</p>
-
-        <h4>La résolution Bdim → Do</h4>
-        <p>C'est la résolution naturelle du diminué dans la gamme de Do. Sur ukulélé, le doigté de Bdim est <strong>2-3-2-3</strong> (lu corde par corde, du Sol au La). Joue-le, puis joue Do (0-0-0-3). Tu <strong>entends</strong> la résolution se faire toute seule.</p>
-      </section>
-
-      <!-- ============================================================
-           MODULE 11
-           ============================================================ -->
-      <section class="module" id="m11" aria-labelledby="m11-title">
-        <header class="module-header">
-          <span class="module-tag">Module 11</span>
-          <h2 id="m11-title">L'ordre causal : tout découle de tout</h2>
-          <p class="module-tagline">La synthèse</p>
-        </header>
-
-        <h3>Le chemin que tu viens de parcourir</h3>
-        <p>Beaucoup de cours de théorie présentent les règles comme des choses à mémoriser. <strong>C'est une erreur pédagogique.</strong> Voici l'ordre <strong>logique</strong> dans lequel tout s'enchaîne :</p>
-
-        <ol class="causal-chain">
-          <li><strong>Patron de la gamme majeure</strong> (T-T-½-T-T-T-½)</li>
-          <li><strong>Notes de la gamme</strong> (avec dièses/bémols si nécessaire)</li>
-          <li><strong>Accords construits sur chaque note</strong> (1-3-5)</li>
-          <li><strong>Couleurs des accords</strong> (Maj-min-min-Maj-Maj-min-dim)</li>
-          <li><strong>Fonctions harmoniques</strong> (maison, salon, porte, nuit…)</li>
-        </ol>
-
-        <blockquote class="callout callout-key">
-          <p><strong>Si tu comprends ce schéma dans ce sens, tu n'as rien à mémoriser de force. Tout découle de tout.</strong> Si tu oublies une étape, tu peux la reconstruire depuis le début — depuis le patron T-T-½-T-T-T-½.</p>
-        </blockquote>
-
-        <p>C'est la différence entre <strong>épeler chaque mot</strong> et <strong>savoir lire</strong>. Les mots changent — les lettres et leur logique, non.</p>
-
-        <h3>Carte mémo — tous les concepts en un coup d'œil</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Concept</th><th>Définition rapide</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Demi-ton</strong></td><td>1 case sur le manche · La plus petite distance musicale</td></tr>
-              <tr><td><strong>Ton</strong></td><td>2 demi-tons · 2 cases</td></tr>
-              <tr><td><strong>Gamme</strong></td><td>Sélection de notes selon un patron de distances</td></tr>
-              <tr><td><strong>Gamme majeure</strong></td><td>T-T-½-T-T-T-½ depuis n'importe quelle note</td></tr>
-              <tr><td><strong>Gamme chromatique</strong></td><td>Les 12 notes possibles, espacées d'un demi-ton</td></tr>
-              <tr><td><strong>Intervalle</strong></td><td>Distance entre deux notes (en demi-tons)</td></tr>
-              <tr><td><strong>Tierce majeure</strong></td><td>4 demi-tons (4 cases) · Couleur joyeuse</td></tr>
-              <tr><td><strong>Tierce mineure</strong></td><td>3 demi-tons (3 cases) · Couleur triste</td></tr>
-              <tr><td><strong>Quinte juste</strong></td><td>7 demi-tons (7 cases) · Stabilité</td></tr>
-              <tr><td><strong>Accord</strong></td><td>3 notes (1, 3, 5) prises dans une gamme · Tierces empilées</td></tr>
-              <tr><td><strong>Accord majeur</strong></td><td>1<sup>re</sup> tierce majeure + 2<sup>e</sup> tierce mineure (4+3)</td></tr>
-              <tr><td><strong>Accord mineur</strong></td><td>1<sup>re</sup> tierce mineure + 2<sup>e</sup> tierce majeure (3+4)</td></tr>
-              <tr><td><strong>Accord diminué</strong></td><td>Deux tierces mineures empilées (3+3)</td></tr>
-              <tr><td><strong>Tonique (I)</strong></td><td>Note/accord de départ · La « maison »</td></tr>
-              <tr><td><strong>Sous-dominante (IV)</strong></td><td>« Le salon » · Légère tension</td></tr>
-              <tr><td><strong>Dominante (V)</strong></td><td>« La porte » · Forte tension · Appelle la tonique</td></tr>
-              <tr><td><strong>Relative mineure (vi)</strong></td><td>« La maison la nuit » · Même réservoir de notes</td></tr>
-              <tr><td><strong>Cadence</strong></td><td>Suite d'accords créant mouvement et résolution</td></tr>
-              <tr><td><strong>Transposition</strong></td><td>Même progression de degrés, tonalité différente</td></tr>
-              <tr><td><strong>Capodastre</strong></td><td>Barré mécanique · Transpose sans changer les doigtés</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Ce que tu as changé</h3>
-        <p>Tu n'es plus un musicien qui <strong>copie des formes</strong>. Tu es maintenant quelqu'un qui comprend <strong>pourquoi</strong> les accords fonctionnent ensemble, <strong>comment</strong> ils sont construits, et <strong>où</strong> les trouver sur ton instrument.</p>
-
-        <blockquote class="callout callout-quote callout-large">
-          <p><strong>Tu es un architecte du son.</strong></p>
-        </blockquote>
-
-        <p>Et il te reste un dernier territoire à explorer : non plus les accords, mais <strong>les notes que tu peux jouer entre les accords</strong>. Bienvenue dans le monde des solos.</p>
-      </section>
-
-      <!-- ============================================================
-           MODULE 12
-           ============================================================ -->
-      <section class="module" id="m12" aria-labelledby="m12-title">
-        <header class="module-header">
-          <span class="module-tag">Module 12</span>
-          <h2 id="m12-title">Les gammes et les solos</h2>
-          <p class="module-tagline">Jouer librement</p>
-        </header>
-
-        <h3>Une gamme = une palette</h3>
-        <p>Une gamme, ce n'est pas seulement le squelette des accords. C'est aussi <strong>une sélection de notes qui sonnent toutes juste</strong> sur les accords d'un morceau dans la même tonalité.</p>
-        <p>Si une chanson est en Do majeur, <strong>toutes les notes de la gamme de Do sonneront juste</strong> sur ses accords. C'est ta <strong>palette d'improvisation</strong>.</p>
-
-        <h3>Les gammes essentielles</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Gamme</th><th>Notes (en Do)</th><th>Usage</th></tr></thead>
-            <tbody>
-              <tr><td><strong>Majeure</strong></td><td>Do Ré Mi Fa Sol La Si</td><td>Toutes les couleurs · Mélodie, improvisation classique</td></tr>
-              <tr><td><strong>Mineure naturelle</strong></td><td>La Si Do Ré Mi Fa Sol</td><td>Son triste, expressif (relative de Do)</td></tr>
-              <tr><td><strong>Pentatonique majeure</strong></td><td>Do Ré Mi Sol La</td><td>Sécurisée — 5 notes, aucun risque</td></tr>
-              <tr><td><strong>Pentatonique mineure</strong></td><td>La Do Ré Mi Sol</td><td>Vocabulaire blues/rock</td></tr>
-              <tr><td><strong>Blues</strong></td><td>La Do Ré Ré♯ Mi Sol</td><td>Pentatonique mineure + <strong>note bleue</strong> (Ré♯)</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>La règle de la pentatonique</h3>
-        <blockquote class="callout callout-key">
-          <p><strong>Pentatonique majeure = gamme majeure sans le Fa et le Si.</strong></p>
-        </blockquote>
-
-        <p>Pourquoi enlever ces 2 notes précisément ? Parce que <strong>ce sont elles qui « coincent »</strong> avec certains accords (notamment le Fa contre la 3<sup>e</sup> du Do, et le Si contre la fondamentale du Do). Les supprimer = <strong>éliminer le risque, garder la mélodie.</strong></p>
-        <p>C'est pour ça que la pentatonique est <strong>la gamme parfaite quand tu débutes l'improvisation</strong>. Tu ne peux <strong>littéralement pas faire de fausse note</strong>.</p>
-
-        <h3>Le cas blues</h3>
-        <p>Jouer la pentatonique <strong>mineure</strong> sur des accords <strong>majeurs</strong> crée un clash entre la tierce mineure de la gamme et la tierce majeure des accords.</p>
-
-        <blockquote class="callout callout-quote">
-          <p>Ce « clash » volontaire est <strong>le son du blues</strong>. Ce n'est pas une erreur — c'est la signature du genre.</p>
-        </blockquote>
-
-        <p>La <strong>note bleue</strong> (Ré♯ entre Ré et Mi) accentue cette tension, qui se résout en glissant rapidement vers la note suivante.</p>
-
-        <h3>Quelle gamme choisir sur une chanson ?</h3>
-        <p><strong>3 étapes :</strong></p>
-        <ol>
-          <li><strong>Identifier la tonalité</strong> — l'accord sur lequel le morceau commence, revient et finit le plus souvent.</li>
-          <li><strong>Choisir ta gamme</strong> selon le style et ton niveau.</li>
-          <li><strong>Jouer</strong> — toutes les notes affichées sonnent juste.</li>
-        </ol>
-
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Situation</th><th>Gamme recommandée</th></tr></thead>
-            <tbody>
-              <tr><td>Tu débutes l'impro</td><td><strong>Pentatonique majeure</strong></td></tr>
-              <tr><td>Style blues / rock</td><td><strong>Pentatonique mineure</strong></td></tr>
-              <tr><td>Tu veux plus de nuances</td><td><strong>Gamme complète (majeure)</strong></td></tr>
-              <tr><td>Style triste / introspectif</td><td><strong>Gamme mineure naturelle</strong></td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Progressions courantes et gammes associées</h3>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Progression</th><th>Tonalité</th><th>Gamme à utiliser</th></tr></thead>
-            <tbody>
-              <tr><td>C – G – Am – F</td><td>Do Majeur</td><td>Do Majeur · Pentatonique Do</td></tr>
-              <tr><td>Am – F – C – G</td><td>La mineur</td><td>La mineure naturelle · Pentatonique La</td></tr>
-              <tr><td>G – D – Em – C</td><td>Sol Majeur</td><td>Sol Majeur · Pentatonique Sol</td></tr>
-              <tr><td>E – A – B</td><td>Mi Majeur</td><td>Mi Majeur · Pentatonique Mi</td></tr>
-              <tr><td>Am – Dm – E</td><td>La mineur (avec V majeur)</td><td>La mineure · Blues La</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>La règle d'or : Do Majeur et La mineur, mêmes notes</h3>
-        <p>Souviens-toi du module 7 : La mineur est la <strong>relative mineure</strong> de Do.</p>
-        <ul>
-          <li>Gamme de Do majeur → <strong>Do Ré Mi Fa Sol La Si</strong></li>
-          <li>Gamme de La mineur → <strong>La Si Do Ré Mi Fa Sol</strong></li>
-        </ul>
-        <p>Ce sont les <strong>mêmes 7 notes</strong> — un point de départ différent. C'est exactement ce que tu as appris dans les modules précédents : la même « maison » vue de jour ou de nuit.</p>
-
-        <blockquote class="callout callout-note">
-          <p>Conséquence pratique : <strong>tu ne peux pas fausser</strong> sur C – Am – F – G avec la gamme de Do. Joue n'importe quelle note de Do, <strong>elle sonnera juste</strong>. ✓</p>
-        </blockquote>
-
-        <h3>La prochaine étape</h3>
-        <p>Tout ce que tu viens d'apprendre prend vie dans la pratique. Quand tu improvises confortablement dans Do Majeur <strong>sans réfléchir aux notes</strong>, ton oreille te dira naturellement quand « sortir » de la gamme.</p>
-        <p>Ce n'est pas une règle à apprendre. C'est <strong>une sensation à développer.</strong></p>
-
-        <blockquote class="callout callout-quote callout-large">
-          <p>Joue. Beaucoup. Et chaque fois que tu joues, <strong>rappelle-toi que tu sais exactement pourquoi ça sonne comme ça.</strong></p>
-        </blockquote>
-      </section>
-
-      <footer class="site-footer">
-        <p><em>Le Code de l'Harmonie — La théorie des cordes</em></p>
-        <p>Ukulélé &amp; Guitare · 12 modules · Théorie appliquée</p>
-        <p class="back-top"><a href="#intro">↑ Retour en haut</a></p>
-      </footer>
+        <button class="nav-btn nav-next" id="navNext" aria-label="Slide suivante">
+          <span class="nav-btn-label">Suivant</span>
+          <span aria-hidden="true">→</span>
+        </button>
+      </nav>
 
     </main>
 
