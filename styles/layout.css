@@ -187,7 +187,7 @@ body { overscroll-behavior: none; }
   position: absolute;
   inset: 0;
   overflow-y: auto;
-  padding: clamp(24px, 5vw, 64px) clamp(20px, 5vw, 80px);
+  padding: clamp(24px, 4vw, 56px) clamp(20px, 5vw, 80px);
   opacity: 0;
   visibility: hidden;
   transition: opacity 250ms ease, transform 350ms cubic-bezier(.2,.8,.2,1);
@@ -218,10 +218,16 @@ body { overscroll-behavior: none; }
   border-bottom: 1px solid var(--line);
 }
 
+/* Centrage vertical du contenu : si la slide est courte, le contenu
+   est centré dans la zone visible. Si elle déborde, scroll naturel. */
 .slide-inner {
   max-width: var(--content-max);
   margin: 0 auto;
   width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* ---- Navigation prev/next en bas ---- */

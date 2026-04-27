@@ -8,10 +8,6 @@
 .slide-hero { text-align: center; }
 
 .slide-hero .slide-inner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100%;
   align-items: center;
 }
 
@@ -146,14 +142,8 @@
   line-height: 1.15;
 }
 
-.slide-finale {
-  text-align: center;
-}
+.slide-finale { text-align: center; }
 .slide-finale .slide-inner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100%;
   align-items: center;
   gap: var(--space-3);
 }
