@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="styles/base.css" />
   <link rel="stylesheet" href="styles/layout.css" />
   <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/widgets.css" />
 </head>
 <body class="no-js">
 
@@ -135,8 +136,12 @@
               <span class="slide-tag">Module 2 · L'outil de mesure</span>
               <h2>Le demi-ton</h2>
             </header>
-            <p>En musique, la plus petite distance possible entre deux notes s'appelle un <strong>demi-ton</strong>.</p>
-            <p>Sur le manche de ton ukulélé ou de ta guitare, c'est simple : <strong>un demi-ton = une case</strong>. Voilà tout.</p>
+            <p>En musique, la plus petite distance possible entre deux notes s'appelle un <strong>demi-ton</strong>. Sur ton manche : <strong>un demi-ton = une case</strong>.</p>
+            <div class="btn-play-row">
+              <button class="btn-play" data-play="note:7" aria-label="Écouter Sol">Sol (corde à vide)</button>
+              <button class="btn-play" data-play="note:8" aria-label="Écouter Sol dièse">Sol♯ (case 1)</button>
+              <button class="btn-play" data-play="note:9" aria-label="Écouter La">La (case 2)</button>
+            </div>
             <pre class="diagram"><code>Corde à vide   →   case 1   →   case 2   →   case 3
     Sol              Sol#           La             La#
     ←── 1 demi-ton ──→←── 1 demi-ton ──→</code></pre>
@@ -192,18 +197,19 @@
         <article class="slide" data-id="m3-2" data-module="m3">
           <div class="slide-inner">
             <header class="slide-header">
-              <span class="slide-tag">Module 3 · Application</span>
-              <h2>Do majeur, puis Sol majeur</h2>
+              <span class="slide-tag">Module 3 · Sur le manche</span>
+              <h2>La gamme de Do, partout</h2>
             </header>
-            <pre class="diagram"><code>Do → Ré → Mi → Fa → Sol → La → Si → Do
-   T    T    ½    T     T    T    ½</code></pre>
-            <p>Aucun dièse, aucun bémol. <strong>Do majeur est la tonalité « propre »</strong>.</p>
-            <pre class="diagram"><code>Sol → La → Si → Do → Ré → Mi → Fa# → Sol
-    T    T    ½    T    T    T     ½</code></pre>
-            <p>Pourquoi <strong>Fa♯</strong> ? Parce que le 6<sup>e</sup> intervalle doit être un <strong>ton</strong>. Sans le dièse, le patron serait cassé.</p>
-            <blockquote class="callout callout-key">
-              <p>Les dièses et bémols ne sont pas là pour compliquer. Ils sont là pour <strong>préserver le patron</strong>, quelle que soit la note de départ.</p>
-            </blockquote>
+            <p>Toutes les notes de la gamme de <strong>Do majeur</strong> sur le manche de l'ukulélé. La <span style="color: var(--color-red); font-weight: 700;">tonique</span> est entourée.</p>
+            <div class="fretboard"
+                 data-instrument="ukulele"
+                 data-scale-tonic="C"
+                 data-scale-key="major"
+                 data-frets="12"></div>
+            <div class="btn-play-row">
+              <button class="btn-play" data-play="scale:C:major:ukulele">Écouter la gamme de Do</button>
+              <button class="btn-play btn-play-soft" data-play="scale:G:major:ukulele">Écouter Sol majeur (avec Fa♯)</button>
+            </div>
           </div>
         </article>
 
@@ -233,12 +239,11 @@
             <blockquote class="callout callout-quote">
               <p>Un accord = <strong>3 notes prises en sautant une note sur deux</strong> dans la gamme.</p>
             </blockquote>
-            <p>C'est ce qu'on appelle des <strong>tierces empilées</strong>. Le mot « tierce » désigne juste qu'on va de la 1<sup>re</sup> à la 3<sup>e</sup> note d'une suite.</p>
-            <pre class="diagram"><code>Gamme de Do :   Do  Ré  Mi  Fa  Sol  La  Si
-                 1   2   3   4    5   6   7
-
-Accord de Do :  Do       Mi       Sol
-                 1        3        5</code></pre>
+            <p>Sur ukulélé, voici l'accord de <strong>Do</strong> = <strong>Do – Mi – Sol</strong> (les degrés 1, 3, 5 de la gamme de Do).</p>
+            <div class="fretboard" data-instrument="ukulele" data-chord="C"></div>
+            <div class="btn-play-row">
+              <button class="btn-play" data-play="chord:C:ukulele">Écouter Do</button>
+            </div>
           </div>
         </article>
 
@@ -297,20 +302,26 @@ Accord de Do :  Do       Mi       Sol
           <div class="slide-inner">
             <header class="slide-header">
               <span class="slide-tag">Module 5 · Les 3 couleurs</span>
-              <h2>Majeur, mineur, diminué</h2>
+              <h2>Majeur, mineur, diminué — entends la différence</h2>
             </header>
-            <div class="chord-card chord-major">
-              <h4>MAJEUR (4 + 3) — joyeux, lumineux</h4>
-              <p>Do → Mi (4 cases) → Sol (3 cases). Quinte juste de 7 demi-tons.</p>
+            <div class="chord-compare">
+              <div class="chord-compare-cell is-major">
+                <span class="label-quality">Majeur · 4 + 3</span>
+                <div class="fretboard" data-instrument="ukulele" data-chord="C"></div>
+                <button class="btn-play btn-play-soft" data-play="chord:C:ukulele">Do</button>
+              </div>
+              <div class="chord-compare-cell is-minor">
+                <span class="label-quality">Mineur · 3 + 4</span>
+                <div class="fretboard" data-instrument="ukulele" data-chord="Dm"></div>
+                <button class="btn-play btn-play-soft" data-play="chord:Dm:ukulele">Ré mineur</button>
+              </div>
+              <div class="chord-compare-cell is-dim">
+                <span class="label-quality">Diminué · 3 + 3</span>
+                <div class="fretboard" data-instrument="ukulele" data-chord="Bdim"></div>
+                <button class="btn-play btn-play-soft" data-play="chord:Bdim:ukulele">Si diminué</button>
+              </div>
             </div>
-            <div class="chord-card chord-minor">
-              <h4>MINEUR (3 + 4) — triste, mélancolique</h4>
-              <p>Ré → Fa (3 cases) → La (4 cases). Quinte juste de 7 demi-tons.</p>
-            </div>
-            <div class="chord-card chord-dim">
-              <h4>DIMINUÉ (3 + 3) — instable, tendu</h4>
-              <p>Si → Ré (3 cases) → Fa (3 cases). Quinte <strong>diminuée</strong> de 6 demi-tons.</p>
-            </div>
+            <p style="text-align: center; color: var(--ink-soft); font-size: var(--fs-sm);">Joue les trois et écoute : la même structure 1-3-5, trois couleurs très différentes.</p>
           </div>
         </article>
 
@@ -374,10 +385,15 @@ Accord de Do :  Do       Mi       Sol
               <p>La théorie s'ancre par <strong>l'oreille</strong>, pas par la mémoire.</p>
             </blockquote>
             <p>Trois intervalles à ancrer en priorité :</p>
+            <div class="btn-play-row">
+              <button class="btn-play" data-play="interval:0:4">Tierce majeure (4 ½)</button>
+              <button class="btn-play" data-play="interval:0:3">Tierce mineure (3 ½)</button>
+              <button class="btn-play" data-play="interval:0:7">Quinte juste (7 ½)</button>
+            </div>
             <ul>
-              <li><strong>Tierce majeure</strong> (4 ½) : début de <em>Frère Jacques</em></li>
-              <li><strong>Tierce mineure</strong> (3 ½) : début de <em>Greensleeves</em></li>
-              <li><strong>Quinte juste</strong> (7 ½) : début de <em>Twinkle Twinkle</em></li>
+              <li><strong>Tierce majeure</strong> : début de <em>Frère Jacques</em></li>
+              <li><strong>Tierce mineure</strong> : début de <em>Greensleeves</em></li>
+              <li><strong>Quinte juste</strong> : début de <em>Twinkle Twinkle</em></li>
             </ul>
           </div>
         </article>
@@ -418,10 +434,10 @@ Accord de Do :  Do       Mi       Sol
               <h2>4 piliers, 4 fonctions</h2>
             </header>
             <div class="role-grid">
-              <div class="role-card role-tonic"><span class="role-degree">I</span><h4>Do</h4><p class="role-meta">La maison.</p><p>En sécurité.</p></div>
-              <div class="role-card role-sub"><span class="role-degree">IV</span><h4>Fa</h4><p class="role-meta">Le salon.</p><p>Léger élan.</p></div>
-              <div class="role-card role-dom"><span class="role-degree">V</span><h4>Sol</h4><p class="role-meta">La porte.</p><p>Tension, appelle le I.</p></div>
-              <div class="role-card role-relative"><span class="role-degree">vi</span><h4>Lam</h4><p class="role-meta">La maison la nuit.</p><p>Même lieu, autre lumière.</p></div>
+              <div class="role-card role-tonic"><span class="role-degree">I</span><h4>Do</h4><p class="role-meta">La maison.</p><button class="btn-play btn-play-soft" data-play="chord:C:ukulele">Écouter</button></div>
+              <div class="role-card role-sub"><span class="role-degree">IV</span><h4>Fa</h4><p class="role-meta">Le salon.</p><button class="btn-play btn-play-soft" data-play="chord:F:ukulele">Écouter</button></div>
+              <div class="role-card role-dom"><span class="role-degree">V</span><h4>Sol</h4><p class="role-meta">La porte.</p><button class="btn-play btn-play-soft" data-play="chord:G:ukulele">Écouter</button></div>
+              <div class="role-card role-relative"><span class="role-degree">vi</span><h4>Lam</h4><p class="role-meta">Maison la nuit.</p><button class="btn-play btn-play-soft" data-play="chord:Am:ukulele">Écouter</button></div>
             </div>
             <blockquote class="callout callout-key">
               <p><strong>L'émotion d'un accord vient toujours de ce qui l'entoure.</strong> Pas de l'accord lui-même.</p>
@@ -643,8 +659,11 @@ Accord de Do :  Do       Mi       Sol
             <blockquote class="callout callout-key">
               <p><strong>Pentatonique majeure = gamme majeure sans le Fa et le Si.</strong></p>
             </blockquote>
-            <p>On enlève les 2 notes qui « coincent » avec certains accords. Résultat : tu ne peux <strong>littéralement pas faire de fausse note</strong>.</p>
-            <p>Le <strong>blues</strong> ? C'est la pentatonique <strong>mineure</strong> jouée sur des accords <strong>majeurs</strong>. Le clash entre la tierce mineure de la gamme et la tierce majeure des accords = la signature du genre.</p>
+            <div class="fretboard" data-instrument="ukulele" data-scale-tonic="C" data-scale-key="pentaMaj" data-frets="12"></div>
+            <div class="btn-play-row">
+              <button class="btn-play" data-play="scale:C:pentaMaj:ukulele">Écouter pentatonique Do</button>
+              <button class="btn-play btn-play-soft" data-play="scale:A:blues:ukulele">Écouter le blues de La</button>
+            </div>
           </div>
         </article>
 
@@ -683,6 +702,9 @@ Accord de Do :  Do       Mi       Sol
 
   </div>
 
+  <script src="js/audio.js" defer></script>
+  <script src="js/music-theory.js" defer></script>
+  <script src="js/widgets.js" defer></script>
   <script src="js/app.js" defer></script>
 </body>
 </html>

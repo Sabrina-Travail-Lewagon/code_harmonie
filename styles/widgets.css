@@ -1,0 +1,239 @@
+/* =============================================================
+   widgets.css — Manche interactif + boutons audio + animations
+   ============================================================= */
+
+/* ---- Fretboard (manche SVG) ---- */
+
+.fretboard {
+  margin: var(--space-4) auto;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.fretboard-svg {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  filter: drop-shadow(0 6px 14px rgba(107, 62, 28, 0.18));
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(232, 184, 119, 0.05), rgba(0,0,0,0));
+}
+
+.fretboard-svg circle {
+  transition: transform 200ms ease, opacity 200ms ease;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.fretboard-meta {
+  font-size: var(--fs-sm);
+  color: var(--ink-soft);
+  text-align: center;
+  font-weight: 600;
+}
+.fretboard-meta strong {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  color: var(--ink);
+  margin-right: var(--space-2);
+}
+.fretboard-meta .degree-maj { color: var(--color-yellow); }
+.fretboard-meta .degree-min { color: var(--color-blue); }
+.fretboard-meta .degree-dim { color: var(--color-red); }
+.fretboard-meta .degree-dom { color: var(--color-orange); }
+
+/* ---- Boutons "Écouter" ---- */
+
+.btn-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, var(--color-green), #46b53a);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--t-fast), box-shadow var(--t-fast);
+  font-family: inherit;
+}
+.btn-play:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+.btn-play::before {
+  content: '▶';
+  font-size: 11px;
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+.btn-play.is-playing::before {
+  content: '♪';
+  animation: pulse-play 600ms ease-in-out infinite;
+}
+
+@keyframes pulse-play {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.4); opacity: 0.6; }
+}
+
+.btn-play-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  margin: var(--space-3) 0;
+}
+
+/* Variante secondaire (plus discrète) */
+.btn-play-soft {
+  background: var(--bg-soft);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.btn-play-soft:hover {
+  background: var(--bg-tinted);
+}
+
+/* ---- Comparateur d'accords (3 mini fretboards côte à côte) ---- */
+
+.chord-compare {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+
+.chord-compare .fretboard {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-xs);
+  margin: 0;
+}
+
+.chord-compare-cell {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  text-align: center;
+}
+.chord-compare-cell h4 {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--ink);
+}
+.chord-compare-cell .label-quality {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.chord-compare-cell.is-major .label-quality { color: var(--color-yellow); }
+.chord-compare-cell.is-minor .label-quality { color: var(--color-blue); }
+.chord-compare-cell.is-dim   .label-quality { color: var(--color-red); }
+
+/* ---- Cartes d'instrument (selector ukulélé / guitare) ---- */
+
+.instr-tabs {
+  display: inline-flex;
+  background: var(--bg-soft);
+  padding: 4px;
+  border-radius: 999px;
+  margin: 0 auto var(--space-3);
+}
+.instr-tabs button {
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--ink-soft);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background var(--t-fast), color var(--t-fast);
+}
+.instr-tabs button.is-active {
+  background: #fff;
+  color: var(--ink);
+  box-shadow: var(--shadow-xs);
+}
+
+/* ---- Animations d'entrée ---- */
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pop-dot {
+  0%   { transform: scale(0); opacity: 0; }
+  60%  { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Animation au chargement initial */
+.slide.is-active .slide-inner > * {
+  animation: slide-in 540ms cubic-bezier(.2,.8,.2,1) both;
+}
+.slide.is-active .slide-inner > *:nth-child(1) { animation-delay: 60ms; }
+.slide.is-active .slide-inner > *:nth-child(2) { animation-delay: 130ms; }
+.slide.is-active .slide-inner > *:nth-child(3) { animation-delay: 200ms; }
+.slide.is-active .slide-inner > *:nth-child(4) { animation-delay: 270ms; }
+.slide.is-active .slide-inner > *:nth-child(5) { animation-delay: 340ms; }
+.slide.is-active .slide-inner > *:nth-child(6) { animation-delay: 410ms; }
+.slide.is-active .slide-inner > *:nth-child(7) { animation-delay: 480ms; }
+
+/* Fretboard : pop-in séquentiel des pastilles */
+.slide.is-active .fretboard-svg circle:nth-child(n+5) {
+  animation: pop-dot 420ms cubic-bezier(.2,1.4,.4,1) both;
+}
+
+/* Respect des préférences utilisateur */
+@media (prefers-reduced-motion: reduce) {
+  .slide.is-active .slide-inner > *,
+  .slide.is-active .fretboard-svg circle {
+    animation: none !important;
+  }
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 768px) {
+  .chord-compare {
+    grid-template-columns: 1fr;
+  }
+  .fretboard-svg {
+    max-width: 100%;
+  }
+}
